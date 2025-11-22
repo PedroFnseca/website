@@ -254,6 +254,13 @@ export const translations = {
       },
       credit: "Desenvolvido por Pedro Fonseca",
     },
+    notFound: {
+      title: "404",
+      subtitle: "Página Não Encontrada",
+      description:
+        "Ops! A página que você está procurando não existe ou foi movida para outro lugar.",
+      backHome: "Voltar para Home",
+    },
     services: {
       title: "Nossos Serviços",
       items: [
@@ -521,6 +528,13 @@ export const translations = {
         contact: "Contact",
       },
       credit: "Developed by Pedro Fonseca",
+    },
+    notFound: {
+      title: "404",
+      subtitle: "Page Not Found",
+      description:
+        "Oops! The page you're looking for doesn't exist or has been moved somewhere else.",
+      backHome: "Back to Home",
     },
     services: {
       title: "Our Services",
@@ -790,6 +804,13 @@ export const translations = {
         contact: "Contacto",
       },
       credit: "Desarrollado por Pedro Fonseca",
+    },
+    notFound: {
+      title: "404",
+      subtitle: "Página No Encontrada",
+      description:
+        "¡Ups! La página que buscas no existe o ha sido movida a otro lugar.",
+      backHome: "Volver al Inicio",
     },
     services: {
       title: "Nuestros Servicios",
