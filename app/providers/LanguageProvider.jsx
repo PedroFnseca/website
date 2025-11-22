@@ -1,17 +1,66 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { translations, languageOptions } from "../constants/translations";
 
-const DEFAULT_LANGUAGE = "pt-BR";
+const DEFAULT_LANGUAGE = "en";
 
 const LanguageContext = createContext(null);
+
+const availableLanguageCodes = languageOptions.map((option) => option.code);
+
+const detectBrowserLanguage = (fallback) => {
+  if (typeof navigator === "undefined") {
+    return fallback;
+  }
+
+  const preferredLanguages = Array.isArray(navigator.languages)
+    ? navigator.languages
+    : [navigator.language];
+
+  for (const locale of preferredLanguages) {
+    if (!locale) {
+      continue;
+    }
+
+    const trimmedLocale = locale.trim();
+
+    if (availableLanguageCodes.includes(trimmedLocale)) {
+      return trimmedLocale;
+    }
+
+    const baseLocale = trimmedLocale.split("-")[0];
+    const match = availableLanguageCodes.find((code) =>
+      code.startsWith(baseLocale)
+    );
+
+    if (match) {
+      return match;
+    }
+  }
+
+  return fallback;
+};
 
 export function LanguageProvider({
   children,
   defaultLanguage = DEFAULT_LANGUAGE,
 }) {
-  const [language, setLanguage] = useState(defaultLanguage);
+  const [language, setLanguage] = useState(() =>
+    detectBrowserLanguage(defaultLanguage)
+  );
+
+  useEffect(() => {
+    const browserLanguage = detectBrowserLanguage(defaultLanguage);
+
+    if (browserLanguage && browserLanguage !== language) {
+      const animationFrameId = requestAnimationFrame(() => {
+        setLanguage(browserLanguage);
+      });
+
+      return () => cancelAnimationFrame(animationFrameId);
+    }
+  }, [defaultLanguage, language]);
 
   const value = useMemo(() => {
     const dictionary = translations[language] || translations[DEFAULT_LANGUAGE];
