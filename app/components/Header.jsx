@@ -1,17 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { Github, Linkedin } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function Header() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { t, dictionary } = useLanguage();
 
-  useEffect(() => setMounted(true), []);
+  const isDarkMode = (theme === "system" ? resolvedTheme : theme) === "dark";
+
+  const navigation = [
+    { href: "#projects", label: t("header.nav.projects") },
+    { href: "#timeline", label: t("header.nav.journey") },
+    { href: "#contact", label: t("header.nav.contact") },
+  ];
 
   return (
     <motion.header
@@ -27,7 +34,7 @@ export default function Header() {
         <div className="flex lg:flex-1 items-center gap-4">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="text-xl font-bold text-foreground">
-              Pedro Fonseca
+              {dictionary.general.name}
             </span>
           </Link>
           <div className="flex gap-2">
@@ -52,38 +59,29 @@ export default function Header() {
           </div>
         </div>
         <div className="flex gap-x-12">
-          <Link
-            href="#projects"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            Projetos
-          </Link>
-          <Link
-            href="#timeline"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            Jornada
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            Contato
-          </Link>
-        </div>
-        <div className="flex flex-1 justify-end">
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="glass-button rounded-full p-2 text-primary"
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-foreground transition-colors hover:text-primary"
             >
-              {theme === "dark" ? (
-                <SunIcon className="h-5 w-5" />
-              ) : (
-                <MoonIcon className="h-5 w-5" />
-              )}
-            </button>
-          )}
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="flex flex-1 items-center justify-end gap-3">
+          <LanguageSelector />
+          <button
+            onClick={() => setTheme(isDarkMode ? "light" : "dark")}
+            className="glass-button rounded-full p-2 text-primary"
+            aria-label={t("header.aria.themeToggle")}
+          >
+            {isDarkMode ? (
+              <SunIcon className="h-5 w-5" />
+            ) : (
+              <MoonIcon className="h-5 w-5" />
+            )}
+          </button>
         </div>
       </nav>
     </motion.header>

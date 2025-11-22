@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function Marquee() {
+  const { dictionary } = useLanguage();
   return (
     <div className="relative w-full overflow-hidden bg-background py-16">
       <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10" />
@@ -23,7 +25,7 @@ export default function Marquee() {
                 WebkitTextStroke: "1px rgb(156 163 175)",
               }}
             >
-              Pedro Fonseca
+              {dictionary.general.name}
             </span>
           </div>
         ))}

@@ -2,35 +2,25 @@
 
 import { motion } from "framer-motion";
 import { Code, Paintbrush, Megaphone, Smartphone } from "lucide-react";
+import { useLanguage } from "../providers/LanguageProvider";
 
-const services = [
-  {
-    icon: <Paintbrush className="w-12 h-12 mb-4 text-blue-500" />,
-    title: "UI/UX Design",
-    description:
-      "Crafting intuitive and visually stunning interfaces that engage and delight users.",
-  },
-  {
-    icon: <Code className="w-12 h-12 mb-4 text-green-500" />,
-    title: "Web Development",
-    description:
-      "Building robust, scalable, and high-performance websites and web applications.",
-  },
-  {
-    icon: <Megaphone className="w-12 h-12 mb-4 text-yellow-500" />,
-    title: "Digital Marketing",
-    description:
-      "Developing strategic campaigns that increase brand visibility and drive conversions.",
-  },
-  {
-    icon: <Smartphone className="w-12 h-12 mb-4 text-purple-500" />,
-    title: "Mobile App Development",
-    description:
-      "Creating innovative mobile applications for iOS and Android platforms.",
-  },
-];
+const ICON_MAP = {
+  Paintbrush,
+  Code,
+  Megaphone,
+  Smartphone,
+};
 
 export default function Services() {
+  const { dictionary } = useLanguage();
+  const services = dictionary.services.items.map((service) => {
+    const Icon = service.icon ? ICON_MAP[service.icon] ?? Code : Code;
+    return {
+      ...service,
+      Icon,
+    };
+  });
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
       <div className="container mx-auto">
@@ -40,7 +30,7 @@ export default function Services() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Our Services
+          {dictionary.services.title}
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
@@ -51,7 +41,11 @@ export default function Services() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              {service.icon}
+              <service.Icon
+                className={`w-12 h-12 mb-4 ${
+                  service.colorClass ?? "text-primary"
+                }`}
+              />
               <h3 className="text-xl font-bold mb-2 text-white">
                 {service.title}
               </h3>

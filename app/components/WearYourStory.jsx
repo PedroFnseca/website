@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function WearYourStory() {
+  const { dictionary } = useLanguage();
+
   return (
     <section className="bg-background py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,13 +16,7 @@ export default function WearYourStory() {
           className="text-center"
         >
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Desenvolvedor full stack com foco em alta performance, capaz de
-            criar soluções que vão desde sistemas de baixo nível até aplicações
-            modernas em nuvem. Uno experiência prática, rigor técnico e
-            curiosidade científica para transformar ideias em produtos reais,
-            escaláveis e bem estruturados. Atuo com profundidade em backend,
-            automações, engenharia de software e computação experimental sempre
-            buscando inovação, clareza e impacto em cada projeto.
+            {dictionary.wearYourStory.description}
           </p>
           <motion.div
             className="mt-10"
@@ -31,7 +28,7 @@ export default function WearYourStory() {
               href="#timeline"
               className="apple-button inline-flex items-center"
             >
-              Ver Minha Jornada
+              {dictionary.general.viewJourney}
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"

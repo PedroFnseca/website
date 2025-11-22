@@ -15,7 +15,7 @@ export async function fetchGitHubRepos(username = "PedroFnseca") {
       id: repo.id,
       title: repo.name,
       description: repo.description || "Sem descrição disponível",
-      imageUrl: `/placeholder.svg?height=600&width=800`,
+      imageUrl: "/placeholder.svg?height=600&width=800",
       category: repo.language || "Other",
       url: repo.html_url,
       stars: repo.stargazers_count,

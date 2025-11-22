@@ -1,39 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, GitFork, Calendar, RefreshCw } from "lucide-react";
 import { fetchGitHubRepos } from "../services/githubService";
-
-const formatTimeAgo = (dateString) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now - date) / 1000);
-
-  const intervals = {
-    ano: 31536000,
-    meses: 2592000,
-    semanas: 604800,
-    dias: 86400,
-    horas: 3600,
-    minutos: 60,
-  };
-
-  for (const [name, secondsInInterval] of Object.entries(intervals)) {
-    const interval = Math.floor(seconds / secondsInInterval);
-    if (interval >= 1) {
-      return `há ${interval} ${name}`;
-    }
-  }
-
-  return "agora mesmo";
-};
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function PortfolioGrid() {
-  const [filter, setFilter] = useState("Destaques");
+  const { dictionary } = useLanguage();
+  const categories = dictionary.portfolio.categories;
+  const categoryMap = dictionary.portfolio.languageCategoryMap;
+  const categoryLabels = dictionary.portfolio.categoryLabels;
+  const fallbackCategoryLabel = dictionary.portfolio.labels.fallbackCategory;
+
+  const [filter, setFilter] = useState(
+    () => categories[0]?.value ?? "featured"
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+
+  const formatTimeAgo = useCallback(
+    (dateString) => {
+      if (!dateString) {
+        return "";
+      }
+
+      const date = new Date(dateString);
+      const now = new Date();
+      const seconds = Math.floor((now - date) / 1000);
+
+      const intervals = [
+        { key: "year", value: 31536000 },
+        { key: "month", value: 2592000 },
+        { key: "week", value: 604800 },
+        { key: "day", value: 86400 },
+        { key: "hour", value: 3600 },
+        { key: "minute", value: 60 },
+      ];
+
+      for (const interval of intervals) {
+        const quantity = Math.floor(seconds / interval.value);
+        if (quantity >= 1) {
+          const labels = dictionary.portfolio.timeAgo.units[interval.key] || {};
+          const label =
+            quantity === 1
+              ? labels.singular ?? interval.key
+              : labels.plural ?? `${interval.key}s`;
+          return `${dictionary.portfolio.timeAgo.prefix} ${quantity} ${label}`;
+        }
+      }
+
+      return dictionary.portfolio.timeAgo.justNow;
+    },
+    [dictionary.portfolio.timeAgo]
+  );
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["github-repos"],
@@ -44,36 +65,24 @@ export default function PortfolioGrid() {
   const projects = data?.repos || [];
   const stats = data?.stats || { totalRepos: 0, totalStars: 0, totalForks: 0 };
 
-  const categoryMap = {
-    JavaScript: "JavaScript",
-    TypeScript: "JavaScript",
-    C: "C",
-    "C#": "C#",
-    Python: "Python",
-    "Jupyter Notebook": "Python",
-    Java: "Java",
-  };
+  const normalizedProjects = projects.map((project) => {
+    const normalizedCategory = categoryMap[project.category] || "other";
 
-  const normalizedProjects = projects.map((project) => ({
-    ...project,
-    normalizedCategory: categoryMap[project.category] || "Outros",
-  }));
-
-  const categories = [
-    "Destaques",
-    "Todos",
-    "JavaScript",
-    "C",
-    "C#",
-    "Python",
-    "Java",
-  ];
+    return {
+      ...project,
+      normalizedCategory,
+      displayCategory:
+        categoryLabels[normalizedCategory] ||
+        project.category ||
+        fallbackCategoryLabel,
+    };
+  });
 
   const getFilteredProjects = () => {
-    if (filter === "Destaques") {
+    if (filter === "featured") {
       return normalizedProjects.sort((a, b) => b.stars - a.stars).slice(0, 6);
     }
-    if (filter === "Todos") {
+    if (filter === "all") {
       return normalizedProjects;
     }
     return normalizedProjects.filter(
@@ -98,7 +107,9 @@ export default function PortfolioGrid() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
-            <p className="mt-4 text-muted-foreground">Carregando projetos...</p>
+            <p className="mt-4 text-muted-foreground">
+              {dictionary.portfolio.loading}
+            </p>
           </div>
         </div>
       </section>
@@ -111,7 +122,7 @@ export default function PortfolioGrid() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-red-500">
-              Erro ao carregar projetos: {error.message}
+              {dictionary.portfolio.errorPrefix}: {error.message}
             </p>
           </div>
         </div>
@@ -129,19 +140,23 @@ export default function PortfolioGrid() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Meus Projetos
+            {dictionary.portfolio.title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            {stats.totalRepos} repositórios públicos no GitHub
+            {stats.totalRepos} {dictionary.portfolio.subtitleSuffix}
           </p>
           <div className="flex justify-center gap-6 mt-4">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Star className="w-5 h-5" />
-              <span className="font-semibold">{stats.totalStars} stars</span>
+              <span className="font-semibold">
+                {stats.totalStars} {dictionary.portfolio.stats.stars}
+              </span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <GitFork className="w-5 h-5" />
-              <span className="font-semibold">{stats.totalForks} forks</span>
+              <span className="font-semibold">
+                {stats.totalForks} {dictionary.portfolio.stats.forks}
+              </span>
             </div>
           </div>
         </motion.div>
@@ -149,15 +164,15 @@ export default function PortfolioGrid() {
         <div className="flex justify-center space-x-4 mb-8">
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => handleFilterChange(category)}
+              key={category.value}
+              onClick={() => handleFilterChange(category.value)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === category
+                filter === category.value
                   ? "glass-button scale-110"
                   : "glass-button opacity-70 hover:opacity-100"
               }`}
             >
-              {category}
+              {category.label}
             </button>
           ))}
         </div>
@@ -177,7 +192,7 @@ export default function PortfolioGrid() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-base font-bold text-primary px-3 py-1.5 rounded-lg border border-primary/30">
-                    {project.category || "Outros"}
+                    {project.displayCategory}
                   </div>
                   <div className="flex items-center gap-3 text-muted-foreground text-sm font-medium">
                     {project.stars > 0 && (
@@ -206,12 +221,16 @@ export default function PortfolioGrid() {
                 <div className="space-y-2 mb-4 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-3.5 h-3.5" />
-                    <span className="font-medium">Criado:</span>
+                    <span className="font-medium">
+                      {dictionary.portfolio.labels.created}
+                    </span>
                     <span>{formatTimeAgo(project.createdAt)}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <RefreshCw className="w-3.5 h-3.5" />
-                    <span className="font-medium">Atualizado:</span>
+                    <span className="font-medium">
+                      {dictionary.portfolio.labels.updated}
+                    </span>
                     <span>{formatTimeAgo(project.updatedAt)}</span>
                   </div>
                 </div>
@@ -249,7 +268,7 @@ export default function PortfolioGrid() {
                   : "glass-button hover:scale-105"
               }`}
             >
-              Anterior
+              {dictionary.portfolio.buttons.previous}
             </button>
 
             <div className="flex gap-2">
@@ -281,7 +300,7 @@ export default function PortfolioGrid() {
                   : "glass-button hover:scale-105"
               }`}
             >
-              Próxima
+              {dictionary.portfolio.buttons.next}
             </button>
           </motion.div>
         )}

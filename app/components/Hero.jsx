@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function Hero() {
+  const { dictionary, t } = useLanguage();
+
   return (
     <div className="relative isolate overflow-hidden bg-background">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:flex lg:items-center lg:gap-x-10 lg:px-8">
@@ -14,7 +17,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gradient">Pedro Fonseca</span>
+            <span className="text-gradient">{dictionary.general.name}</span>
           </motion.h1>
           <motion.p
             className="mt-6 text-lg leading-8 text-muted-foreground"
@@ -22,9 +25,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Desenvolvedor Full Stack apaixonado por tecnologia, ciência e
-            inovação. Criando soluções elegantes e eficientes do backend à
-            nuvem.
+            {t("hero.subtitle")}
           </motion.p>
           <motion.div
             className="mt-10 flex items-center gap-x-6"
@@ -33,13 +34,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a href="#projects" className="apple-button">
-              Ver Projetos
+              {dictionary.general.viewProjects}
             </a>
             <a
               href="#contact"
               className="text-sm font-semibold leading-6 text-foreground"
             >
-              Entre em contato <span aria-hidden="true">→</span>
+              {dictionary.general.contactMe}{" "}
+              <span aria-hidden="true">{dictionary.general.contactArrow}</span>
             </a>
           </motion.div>
         </div>

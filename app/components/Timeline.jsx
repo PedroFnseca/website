@@ -1,49 +1,22 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useInView,
-} from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { GraduationCap, Briefcase, Users, Mic, Rocket } from "lucide-react";
-import { timelineEvents } from "../constants/timelineData";
+import { useLanguage } from "../providers/LanguageProvider";
 
-const FlowerIcon = ({ progress }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6"
-    style={{ transform: `scale(${progress})` }}
-  >
-    <path
-      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-    <path
-      d="M12 8C12 8 14 10 14 12C14 14 12 16 12 16C12 16 10 14 10 12C10 10 12 8 12 8Z"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-  </svg>
-);
-
-const filterOptions = [
-  { type: "all", label: "Todos", icon: null },
-  { type: "education", label: "Educação", icon: GraduationCap },
-  { type: "career", label: "Carreira", icon: Briefcase },
-  { type: "community", label: "Comunidade", icon: Users },
-  { type: "talk", label: "Palestras", icon: Mic },
-];
+const FILTER_ICON_MAP = {
+  GraduationCap,
+  Briefcase,
+  Users,
+  Mic,
+};
 
 export default function Timeline() {
   const [expandedEvent, setExpandedEvent] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState("all");
   const containerRef = useRef(null);
+  const { dictionary } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -55,10 +28,17 @@ export default function Timeline() {
     restDelta: 0.001,
   });
 
+  const filters = dictionary.timeline.filters.map((filter) => ({
+    ...filter,
+    Icon: filter.icon ? FILTER_ICON_MAP[filter.icon] ?? null : null,
+  }));
+
+  const events = dictionary.timeline.events;
+
   const filteredEvents = (
     selectedFilter === "all"
-      ? timelineEvents
-      : timelineEvents.filter((event) => event.type === selectedFilter)
+      ? events
+      : events.filter((event) => event.type === selectedFilter)
   ).sort((a, b) => b.year - a.year);
 
   return (
@@ -75,10 +55,10 @@ export default function Timeline() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Minha Jornada
+            {dictionary.timeline.title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A minha evolução ao longo dos anos
+            {dictionary.timeline.subtitle}
           </p>
         </motion.div>
 
@@ -88,17 +68,17 @@ export default function Timeline() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {filterOptions.map((option) => (
+          {filters.map((option) => (
             <button
-              key={option.type}
-              onClick={() => setSelectedFilter(option.type)}
+              key={option.value}
+              onClick={() => setSelectedFilter(option.value)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
-                selectedFilter === option.type
+                selectedFilter === option.value
                   ? "glass-button scale-110 border-primary/50"
                   : "glass-button opacity-70 hover:opacity-100 hover:scale-105"
               }`}
             >
-              {option.icon && <option.icon className="w-4 h-4" />}
+              {option.Icon && <option.Icon className="w-4 h-4" />}
               <span className="text-sm font-medium">{option.label}</span>
             </button>
           ))}
@@ -134,11 +114,6 @@ function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const isLeft = index % 2 === 0;
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const iconMap = {
     education: <GraduationCap className="w-4 h-4 text-primary" />,

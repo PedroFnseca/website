@@ -9,7 +9,7 @@ import {
   Presentation,
   Rocket,
 } from "lucide-react";
-import { features } from "../constants/featuresData";
+import { useLanguage } from "../providers/LanguageProvider";
 
 const iconMap = {
   Layers,
@@ -24,6 +24,9 @@ export default function FeatureCarousel() {
   const carousel = useRef(null);
   const x = useMotionValue(0);
   const controls = useAnimation();
+  const { dictionary } = useLanguage();
+
+  const featureData = dictionary.featureCarousel.items;
 
   useEffect(() => {
     if (carousel.current) {
@@ -50,7 +53,7 @@ export default function FeatureCarousel() {
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-          Habilidades & Diferenciais
+          {dictionary.featureCarousel.title}
         </h2>
         <motion.div ref={carousel} className="cursor-grab overflow-hidden">
           <motion.div
@@ -62,7 +65,7 @@ export default function FeatureCarousel() {
             onDragEnd={handleDragEnd}
             className="flex"
           >
-            {features.map((feature, index) => (
+            {featureData.map((feature, index) => (
               <motion.div
                 key={index}
                 className="min-w-[300px] h-[400px] p-8 m-4 glass-card rounded-3xl flex flex-col justify-between hover-lift transition-all duration-300 ease-in-out hover:border-primary/20"
