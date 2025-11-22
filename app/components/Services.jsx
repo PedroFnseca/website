@@ -41,7 +41,7 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="bg-gray-700 p-6 rounded-lg"
+              className="glass-card p-6 rounded-lg hover:scale-105 transition-transform duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}>

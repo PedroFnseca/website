@@ -10,7 +10,7 @@ export default function ProjectCard({
 }) {
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-2xl shadow-lg bg-white ${
+      className={`relative overflow-hidden rounded-2xl glass-card ${
         size === "wide" ? "aspect-[2/1]" : "aspect-square"
       }`}
       whileHover={{ scale: 1.05 }}

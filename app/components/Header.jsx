@@ -75,7 +75,7 @@ export default function Header() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full p-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              className="glass-button rounded-full p-2 text-primary"
             >
               {theme === "dark" ? (
                 <SunIcon className="h-5 w-5" />

@@ -94,8 +94,8 @@ export default function Timeline() {
               onClick={() => setSelectedFilter(option.type)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                 selectedFilter === option.type
-                  ? "bg-primary text-primary-foreground shadow-lg scale-105"
-                  : "bg-background border border-primary/20 text-foreground hover:border-primary/50 hover:scale-105"
+                  ? "glass-button scale-110 border-primary/50"
+                  : "glass-button opacity-70 hover:opacity-100 hover:scale-105"
               }`}
             >
               {option.icon && <option.icon className="w-4 h-4" />}
@@ -194,7 +194,7 @@ function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
           transition={{ duration: 0.3 }}
         />
 
-        <div className="p-4 bg-background rounded-lg shadow-md border border-primary/10 relative overflow-hidden">
+        <div className="p-4 glass-card rounded-lg relative overflow-hidden">
           <div
             className={`absolute top-0 ${
               isLeft ? "left-0" : "right-0"

@@ -151,10 +151,10 @@ export default function PortfolioGrid() {
             <button
               key={category}
               onClick={() => handleFilterChange(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 filter === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  ? "glass-button scale-110"
+                  : "glass-button opacity-70 hover:opacity-100"
               }`}
             >
               {category}
@@ -183,7 +183,7 @@ export default function PortfolioGrid() {
                   delay: index * 0.08,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="bg-card rounded-3xl shadow-lg overflow-hidden hover-lift transition-all duration-500 ease-out border-2 border-border hover:border-primary/30 cursor-pointer block"
+                className="glass-card rounded-3xl overflow-hidden hover-lift transition-all duration-500 ease-out hover:border-primary/30 cursor-pointer block"
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
@@ -257,8 +257,8 @@ export default function PortfolioGrid() {
               disabled={currentPage === 1}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-out ${
                 currentPage === 1
-                  ? "bg-secondary/50 text-muted-foreground cursor-not-allowed"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105"
+                  ? "glass-button opacity-50 cursor-not-allowed"
+                  : "glass-button hover:scale-105"
               }`}
             >
               Anterior
@@ -272,8 +272,8 @@ export default function PortfolioGrid() {
                     onClick={() => setCurrentPage(page)}
                     className={`w-10 h-10 rounded-lg font-medium transition-all duration-500 ease-out ${
                       currentPage === page
-                        ? "bg-primary text-primary-foreground scale-110 shadow-lg"
-                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105"
+                        ? "glass-button scale-110 border-primary/50"
+                        : "glass-button opacity-70 hover:opacity-100 hover:scale-105"
                     }`}
                   >
                     {page}
@@ -289,8 +289,8 @@ export default function PortfolioGrid() {
               disabled={currentPage === totalPages}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-out ${
                 currentPage === totalPages
-                  ? "bg-secondary/50 text-muted-foreground cursor-not-allowed"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105"
+                  ? "glass-button opacity-50 cursor-not-allowed"
+                  : "glass-button hover:scale-105"
               }`}
             >
               Próxima
