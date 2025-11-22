@@ -48,7 +48,7 @@ export const translations = {
     },
     hero: {
       subtitle:
-        "Desenvolvedor Full Stack apaixonado por tecnologia, ciência e inovação. Criando soluções elegantes e eficientes do backend à nuvem.",
+        "Desenvolvedor Full Stack apaixonado por tecnologia, ciência e inovação. Criando soluções elegantes e eficientes do baixo nível à nuvem.",
     },
     wearYourStory: {
       description:
@@ -163,85 +163,118 @@ export const translations = {
           description:
             "Primeiros estudos formais em tecnologia e automação industrial.",
           details:
-            "Pedro iniciou sua trajetória cursando Automação Industrial, desenvolvendo bases sólidas em lógica, eletrônica e sistemas embarcados.",
+            "Pedro iniciou sua trajetória cursando Automação Industrial na ETEC de Embu, desenvolvendo bases sólidas em lógica e sistemas embarcados.",
           type: "education",
         },
         {
           year: 2021,
           title: "Técnico em Desenvolvimento de Sistemas",
-          description: "Início da jornada profissional como desenvolvedor.",
-          details:
-            "Durante o curso técnico, Pedro começou a trabalhar em projetos reais, adquirindo experiência prática em programação web e sistemas.",
-          type: "education",
-        },
-        {
-          year: 2021,
-          title: "Participação em Grandes Eventos",
-          description: "Presença ativa na comunidade de tecnologia.",
-          details:
-            "Participou de eventos como Campus Party, TDC e encontros GDG, expandindo networking e acompanhando tendências de IA e engenharia.",
-          type: "community",
-        },
-        {
-          year: 2023,
-          title: "Primeiras Experiências Profissionais",
-          description: "Atuação crescente como desenvolvedor fullstack.",
-          details:
-            "Pedro passou a trabalhar em projetos reais, com foco em backend, APIs, bancos de dados e linguagens de baixo nível.",
-          type: "career",
-        },
-        {
-          year: 2023,
-          title: "Google Cloud Academy",
           description:
-            "Formação em computação em nuvem e infraestrutura distribuída.",
+            "Início da jornada formal em desenvolvimento de software.",
           details:
-            "Pedro concluiu a formação oficial em Google Cloud, aprofundando-se em infraestrutura, deploy, pipelines e arquitetura distribuída.",
+            "Iniciou o curso técnico na ETEC, focando em programação web e lógica de sistemas.",
           type: "education",
         },
         {
           year: 2022,
-          title: "Início da Ciência da Computação",
-          description:
-            "Avanço na formação acadêmica com foco científico e prático.",
+          title: "Estágio: Sistema de Biblioteca ETEC",
+          description: "Desenvolvimento de software real para gestão escolar.",
           details:
-            "Pedro ingressou no SENAC, desenvolvendo projetos como um jogo educativo em C e uma API inteira em C.",
+            "Durante o estágio na ETEC, desenvolveu um sistema de biblioteca utilizando NodeJS, React, MySQL e Azure, aumentando a eficiência e organização da instituição.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Voluntário no The Developer's Conference (TDC)",
+          description:
+            "Apoio na organização de um dos maiores eventos de TI do Brasil.",
+          details:
+            "Atuou como Assistente de Trilha e Credenciamento, auxiliando na logística das palestras e recepção dos participantes.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Voluntário na Campus Party Brasil",
+          description: "Assistente de Comunidade e Acessibilidade.",
+          details:
+            "Contribuiu para a inclusão e organização das comunidades dentro do evento, garantindo uma boa experiência para os campuseiros.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Desenvolvedor Full Stack Júnior no Grupo Raotes",
+          description: "Início da carreira profissional em tempo integral.",
+          details:
+            "Iniciou no Grupo Raotes atuando com VueJS, Quasar, Sequelize e Postgres, contribuindo na criação de módulos e manutenção de sistemas.",
+          type: "career",
+        },
+        {
+          year: 2024,
+          title: "Desenvolvedor Web Voluntário - Jovens do Futuro",
+          description: "Desenvolvimento front-end para impacto social.",
+          details:
+            "Atuou como Desenvolvedor Web na Associação Jovens do Futuro, criando soluções digitais para apoiar a missão da ONG.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Bacharelado em Ciência da Computação",
+          description: "Início da graduação no Senac São Paulo.",
+          details:
+            "Ingressou no ensino superior para aprofundar os conhecimentos teóricos e científicos da computação.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Voluntário no DevOpsDays São Paulo",
+          description:
+            "Apoio técnico e organizacional no evento de cultura DevOps.",
+          details:
+            "Atuou na equipe de credenciamento, facilitando a entrada e organização dos participantes do evento.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Projetos de Extensão na USP",
+          description:
+            "Especialização em Inteligência Artificial e Machine Learning.",
+          details:
+            "Concluiu extensões universitárias no IME-USP e ICMC-USP focadas em Aprendizado de Máquina e Inteligência Artificial.",
           type: "education",
         },
         {
           year: 2024,
           title: "Palestra no SENAI",
-          description: "Apresentação sobre automações e GitHub Actions.",
+          description:
+            "Compartilhando conhecimento sobre automação e desenvolvimento.",
           details:
-            "Pedro apresentou automações de CI/CD e pipelines, mostrando como estudantes podem implementar deploy profissional.",
+            "Apresentação voltada para estudantes técnicos sobre pipelines de CI/CD e boas práticas de desenvolvimento.",
           type: "talk",
         },
         {
           year: 2024,
-          title: "Avaliador de TCC",
-          description:
-            "Contribuição direta na formação de novos profissionais.",
+          title: "Palestra no Senac: Portfólio e GitHub",
+          description: "Apresentação no evento Tecnologia em Foco.",
           details:
-            "Atuou avaliando projetos de TCC, orientando boas práticas de desenvolvimento e arquitetura.",
-          type: "career",
-        },
-        {
-          year: 2025,
-          title: "Palestra de Abertura na Etec de Embu",
-          description:
-            "Abertura do evento anual de Desenvolvimento de Sistemas.",
-          details:
-            "Palestra sobre projetos, GitHub Actions e a importância do portfólio real na carreira de tecnologia.",
+            "Ministrou a palestra 'Construindo um Portfólio com GitHub', demonstrando automações reais e Github Actions.",
           type: "talk",
         },
         {
           year: 2025,
-          title: "Desenvolvedor Full Stack no Grupo Raotes",
-          description:
-            "Atuação profissional com foco em backend, cloud e sistemas distribuídos.",
+          title: "Promoção a Desenvolvedor Pleno",
+          description: "Ascensão profissional no Grupo Raotes.",
           details:
-            "Atua com backend, bancos de dados, APIs, deploy em nuvem e sistemas de alta disponibilidade.",
+            "Promovido a Full Stack Software Developer Pleno, assumindo maiores responsabilidades na arquitetura de soluções, servidores on-premise e desenvolvimento mobile.",
           type: "career",
+        },
+        {
+          year: 2023,
+          title: "Palestra de Abertura na Etec de Embu",
+          description:
+            "Abertura do evento anual de Desenvolvimento de Sistemas.",
+          details:
+            "Retorno à instituição de origem para palestrar sobre mercado de trabalho e a importância de projetos reais.",
+          type: "talk",
         },
       ],
     },
@@ -325,7 +358,7 @@ export const translations = {
     },
     hero: {
       subtitle:
-        "Full Stack Developer passionate about technology, science, and innovation. Creating elegant and efficient solutions from backend architecture to the cloud.",
+        "Full Stack Developer passionate about technology, science, and innovation. Creating elegant and efficient solutions from low level to the cloud.",
     },
     wearYourStory: {
       description:
@@ -436,87 +469,120 @@ export const translations = {
       events: [
         {
           year: 2020,
-          title: "Beginning in Technology & Automation",
+          title: "Start in Technology & Automation",
           description:
             "First formal studies in technology and industrial automation.",
           details:
-            "Started his journey studying Industrial Automation, developing solid foundations in logic, electronics, and embedded systems.",
+            "Pedro began his journey by studying Industrial Automation at ETEC Embu, developing solid foundations in logic and embedded systems.",
           type: "education",
         },
         {
           year: 2021,
           title: "Systems Development Technician",
-          description: "Start of the professional journey as a developer.",
-          details:
-            "During the technical program, Pedro began working on real projects, gaining practical experience in web programming and systems.",
-          type: "education",
-        },
-        {
-          year: 2021,
-          title: "Participation in Major Events",
-          description: "Active presence in the tech community.",
-          details:
-            "Attended events like Campus Party, TDC, and GDG meetups, expanding networking and following trends in AI and engineering.",
-          type: "community",
-        },
-        {
-          year: 2023,
-          title: "First Professional Experiences",
-          description: "Growing role as a fullstack developer.",
-          details:
-            "Worked on real projects focused on backend, APIs, databases, and low-level development.",
-          type: "career",
-        },
-        {
-          year: 2023,
-          title: "Google Cloud Academy",
           description:
-            "Training in cloud computing and distributed infrastructure.",
+            "Beginning of the formal journey in software development.",
           details:
-            "Completed official Google Cloud certification, deepening knowledge in infrastructure, deployment, pipelines, and architecture.",
+            "Started the technical course at ETEC, focusing on web programming and systems logic.",
           type: "education",
         },
         {
           year: 2022,
-          title: "Beginning of Computer Science Degree",
-          description:
-            "Academic advancement with practical and scientific focus.",
+          title: "Internship: ETEC Library System",
+          description: "Real-world software development for school management.",
           details:
-            "Joined SENAC, developing projects like an educational C game and a full API entirely in C.",
+            "During the internship at ETEC, developed a library system using NodeJS, React, MySQL, and Azure, increasing the institution's efficiency and organization.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Volunteer at The Developer's Conference (TDC)",
+          description:
+            "Support in organizing one of the largest IT events in Brazil.",
+          details:
+            "Acted as a Track and Registration Assistant, helping with lecture logistics and attendee reception.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Volunteer at Campus Party Brazil",
+          description: "Community and Accessibility Assistant.",
+          details:
+            "Contributed to inclusion and community organization within the event, ensuring a good experience for attendees (campuseiros).",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Junior Full Stack Developer at Grupo Raotes",
+          description: "Start of full-time professional career.",
+          details:
+            "Started at Grupo Raotes working with VueJS, Quasar, Sequelize, and Postgres, contributing to module creation and system maintenance.",
+          type: "career",
+        },
+        {
+          year: 2024,
+          title: "Volunteer Web Developer - Jovens do Futuro",
+          description: "Front-end development for social impact.",
+          details:
+            "Acted as a Web Developer at the Jovens do Futuro Association, creating digital solutions to support the NGO's mission.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Bachelor's in Computer Science",
+          description: "Start of undergraduate studies at Senac São Paulo.",
+          details:
+            "Entered higher education to deepen theoretical and scientific knowledge of computing.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Volunteer at DevOpsDays São Paulo",
+          description:
+            "Technical and organizational support at the DevOps culture event.",
+          details:
+            "Worked on the registration team, facilitating entry and organization for event participants.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Extension Projects at USP",
+          description:
+            "Specialization in Artificial Intelligence and Machine Learning.",
+          details:
+            "Completed university extension courses at IME-USP and ICMC-USP focused on Machine Learning and Artificial Intelligence.",
           type: "education",
         },
         {
           year: 2024,
           title: "Talk at SENAI",
-          description: "Presentation about automation and GitHub Actions.",
+          description: "Sharing knowledge about automation and development.",
           details:
-            "Presented CI/CD automation and pipelines, guiding students in implementing professional deployment.",
+            "Presentation aimed at technical students regarding CI/CD pipelines and development best practices.",
           type: "talk",
         },
         {
           year: 2024,
-          title: "TCC Evaluator",
-          description: "Contribution to the formation of new professionals.",
+          title: "Talk at Senac: Portfolio and GitHub",
+          description: "Presentation at the 'Technology in Focus' event.",
           details:
-            "Evaluated final student projects and guided best development and architecture practices.",
-          type: "career",
-        },
-        {
-          year: 2025,
-          title: "Opening Talk at Etec de Embu",
-          description: "Opening of the annual Systems Development event.",
-          details:
-            "Talk about projects, GitHub Actions, and the importance of real portfolios in tech careers.",
+            "Delivered the talk 'Building a Portfolio with GitHub', demonstrating real automations and GitHub Actions.",
           type: "talk",
         },
         {
           year: 2025,
-          title: "Full Stack Developer at Grupo Raotes",
-          description:
-            "Professional work focusing on backend, cloud, and distributed systems.",
+          title: "Promotion to Mid-Level Developer",
+          description: "Professional rise at Grupo Raotes.",
           details:
-            "Works with backend, databases, APIs, cloud deployment, and high-availability systems.",
+            "Promoted to Mid-Level Full Stack Software Developer, taking on greater responsibilities in solution architecture, on-premise servers, and mobile development.",
           type: "career",
+        },
+        {
+          year: 2023,
+          title: "Opening Talk at Etec Embu",
+          description: "Opening of the annual Systems Development event.",
+          details:
+            "Returned to his alma mater to speak about the job market and the importance of real-world projects.",
+          type: "talk",
         },
       ],
     },
@@ -600,7 +666,7 @@ export const translations = {
     },
     hero: {
       subtitle:
-        "Desarrollador Full Stack apasionado por la tecnología, la ciencia y la innovación. Creando soluciones elegantes y eficientes desde el backend hasta la nube.",
+        "Desarrollador Full Stack apasionado por la tecnología, la ciencia y la innovación. Creando soluciones elegantes y eficientes desde el bajo nivel hasta la nube.",
     },
     wearYourStory: {
       description:
@@ -715,84 +781,116 @@ export const translations = {
           description:
             "Primeros estudios formales en tecnología y automatización industrial.",
           details:
-            "Inició su trayectoria estudiando Automatización Industrial, desarrollando bases sólidas en lógica, electrónica y sistemas embebidos.",
+            "Pedro inició su trayectoria cursando Automatización Industrial en la ETEC de Embu, desarrollando bases sólidas en lógica y sistemas integrados.",
           type: "education",
         },
         {
           year: 2021,
           title: "Técnico en Desarrollo de Sistemas",
-          description:
-            "Inicio de la trayectoria profesional como desarrollador.",
+          description: "Inicio de la jornada formal en desarrollo de software.",
           details:
-            "Durante el curso técnico, comenzó a trabajar en proyectos reales, adquiriendo experiencia práctica en programación web y sistemas.",
-          type: "education",
-        },
-        {
-          year: 2021,
-          title: "Participación en Grandes Eventos",
-          description: "Presencia activa en la comunidad tecnológica.",
-          details:
-            "Participó en eventos como Campus Party, TDC y reuniones del GDG, expandiendo su networking y siguiendo tendencias de IA e ingeniería.",
-          type: "community",
-        },
-        {
-          year: 2023,
-          title: "Primeras Experiencias Profesionales",
-          description: "Creciente actuación como desarrollador fullstack.",
-          details:
-            "Comenzó a trabajar en proyectos reales centrados en backend, APIs, bases de datos y desarrollo de bajo nivel.",
-          type: "career",
-        },
-        {
-          year: 2023,
-          title: "Google Cloud Academy",
-          description:
-            "Formación en computación en la nube e infraestructura distribuida.",
-          details:
-            "Completó la formación oficial en Google Cloud, profundizando en infraestructura, deploy, pipelines y arquitectura distribuida.",
+            "Comenzó el curso técnico en la ETEC, enfocándose en programación web y lógica de sistemas.",
           type: "education",
         },
         {
           year: 2022,
-          title: "Inicio en Ciencias de la Computación",
-          description: "Avance académico con enfoque práctico y científico.",
+          title: "Pasantía: Sistema de Biblioteca ETEC",
+          description: "Desarrollo de software real para gestión escolar.",
           details:
-            "Ingresó en SENAC, desarrollando proyectos como un juego educativo en C y una API completa escrita en C.",
+            "Durante la pasantía en la ETEC, desarrolló un sistema de biblioteca utilizando NodeJS, React, MySQL y Azure, aumentando la eficiencia y organización de la institución.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Voluntario en The Developer's Conference (TDC)",
+          description:
+            "Apoyo en la organización de uno de los mayores eventos de TI de Brasil.",
+          details:
+            "Actuó como Asistente de Pista (Track) y Acreditación, ayudando en la logística de las charlas y recepción de los participantes.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Voluntario en Campus Party Brasil",
+          description: "Asistente de Comunidad y Accesibilidad.",
+          details:
+            "Contribuyó a la inclusión y organización de las comunidades dentro del evento, garantizando una buena experiencia para los campuseros.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Desarrollador Full Stack Junior en Grupo Raotes",
+          description: "Inicio de la carrera profesional a tiempo completo.",
+          details:
+            "Comenzó en Grupo Raotes trabajando con VueJS, Quasar, Sequelize y Postgres, contribuyendo en la creación de módulos y mantenimiento de sistemas.",
+          type: "career",
+        },
+        {
+          year: 2023,
+          title: "Desarrollador Web Voluntario - Jovens do Futuro",
+          description: "Desarrollo front-end para impacto social.",
+          details:
+            "Actuó como Desarrollador Web en la Asociación Jovens do Futuro, creando soluciones digitales para apoyar la misión de la ONG.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Licenciatura en Ciencias de la Computación",
+          description: "Inicio del grado universitario en Senac São Paulo.",
+          details:
+            "Ingresó a la educación superior para profundizar los conocimientos teóricos y científicos de la computación.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Voluntario en DevOpsDays São Paulo",
+          description:
+            "Apoyo técnico y organizacional en el evento de cultura DevOps.",
+          details:
+            "Actuó en el equipo de acreditación, facilitando la entrada y organización de los participantes del evento.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Proyectos de Extensión en la USP",
+          description:
+            "Especialización en Inteligencia Artificial y Machine Learning.",
+          details:
+            "Concluyó extensiones universitarias en el IME-USP e ICMC-USP enfocadas en Aprendizaje Automático e Inteligencia Artificial.",
           type: "education",
         },
         {
           year: 2024,
           title: "Charla en SENAI",
-          description: "Presentación sobre automatización y GitHub Actions.",
+          description:
+            "Compartiendo conocimiento sobre automatización y desarrollo.",
           details:
-            "Presentó automatización de CI/CD y pipelines, enseñando a estudiantes a implementar un deploy profesional.",
+            "Presentación dirigida a estudiantes técnicos sobre pipelines de CI/CD y buenas prácticas de desarrollo.",
           type: "talk",
         },
         {
           year: 2024,
-          title: "Evaluador de Proyectos Finales",
-          description:
-            "Contribución directa a la formación de nuevos profesionales.",
+          title: "Charla en Senac: Portafolio y GitHub",
+          description: "Presentación en el evento Tecnología en Foco.",
           details:
-            "Actuó evaluando proyectos finales (TCC), orientando buenas prácticas de desarrollo y arquitectura.",
-          type: "career",
-        },
-        {
-          year: 2025,
-          title: "Charla de Apertura en Etec de Embu",
-          description: "Apertura del evento anual de Desarrollo de Sistemas.",
-          details:
-            "Charla sobre proyectos, GitHub Actions y la importancia del portafolio real en la carrera tecnológica.",
+            "Impartió la charla 'Construyendo un Portafolio con GitHub', demostrando automatizaciones reales y GitHub Actions.",
           type: "talk",
         },
         {
           year: 2025,
-          title: "Desarrollador Full Stack en Grupo Raotes",
-          description:
-            "Trabajo profesional centrado en backend, cloud y sistemas distribuidos.",
+          title: "Promoción a Desarrollador Pleno",
+          description: "Ascenso profesional en Grupo Raotes.",
           details:
-            "Actúa con backend, bases de datos, APIs, deploy en la nube y sistemas de alta disponibilidad.",
+            "Promovido a Desarrollador de Software Full Stack Pleno (Semi-Senior), asumiendo mayores responsabilidades en la arquitectura de soluciones, servidores on-premise y desarrollo móvil.",
           type: "career",
+        },
+        {
+          year: 2023,
+          title: "Charla de Apertura en Etec de Embu",
+          description: "Apertura del evento anual de Desarrollo de Sistemas.",
+          details:
+            "Regreso a la institución de origen para dar una charla sobre el mercado laboral y la importancia de proyectos reales.",
+          type: "talk",
         },
       ],
     },
