@@ -5,8 +5,8 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   {
     rules: {
-      semi: ["error", "never"],
-      quotes: ["error", "single"],
+      semi: ["error", "always"],
+      quotes: ["error", "double"],
       indent: ["error", 2],
     },
   },
