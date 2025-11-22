@@ -22,9 +22,9 @@ export default function Header() {
   const isDarkMode = (theme === "system" ? resolvedTheme : theme) === "dark";
 
   const navigation = [
+    { href: "#about", label: t("header.nav.about") },
     { href: "#projects", label: t("header.nav.projects") },
     { href: "#timeline", label: t("header.nav.journey") },
-    { href: "#contact", label: t("header.nav.contact") },
   ];
 
   return (
@@ -35,16 +35,16 @@ export default function Header() {
       transition={{ duration: 0.6 }}
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1 items-center gap-4">
+        <div className="flex lg:flex-1 items-center gap-2 sm:gap-4">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-xl font-bold text-foreground">
+            <span className="text-lg sm:text-xl font-bold text-foreground">
               {dictionary.general.name}
             </span>
           </Link>
-          <div className="flex gap-2">
+          <div className="hidden sm:flex gap-2">
             <Link
               href="https://github.com/PedroFnseca"
               target="_blank"
@@ -65,7 +65,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <div className="flex gap-x-12">
+        <div className="hidden md:flex gap-x-6 lg:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -76,7 +76,7 @@ export default function Header() {
             </Link>
           ))}
         </div>
-        <div className="flex flex-1 items-center justify-end gap-3">
+        <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3">
           <LanguageSelector />
           <button
             onClick={() => setTheme(isDarkMode ? "light" : "dark")}

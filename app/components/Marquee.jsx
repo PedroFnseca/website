@@ -14,7 +14,7 @@ export default function Marquee() {
         transition={{
           repeat: Number.POSITIVE_INFINITY,
           ease: "linear",
-          duration: 20,
+          duration: 10,
         }}
       >
         {[...Array(4)].map((_, index) => (

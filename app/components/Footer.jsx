@@ -9,7 +9,6 @@ export default function Footer() {
     { label: dictionary.footer.nav.about, href: "#about" },
     { label: dictionary.footer.nav.projects, href: "#projects" },
     { label: dictionary.footer.nav.journey, href: "#timeline" },
-    { label: dictionary.footer.nav.contact, href: "#contact" },
   ];
 
   return (

@@ -161,14 +161,14 @@ export default function PortfolioGrid() {
           </div>
         </motion.div>
 
-        <div className="flex justify-center space-x-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 px-4">
           {categories.map((category) => (
             <button
               key={category.value}
               onClick={() => handleFilterChange(category.value)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 filter === category.value
-                  ? "glass-button scale-110"
+                  ? "glass-button scale-105 sm:scale-110"
                   : "glass-button opacity-70 hover:opacity-100"
               }`}
             >

@@ -31,9 +31,7 @@ export const translations = {
     general: {
       name: "Pedro Fonseca",
       viewProjects: "Ver Projetos",
-      contactMe: "Entre em contato",
       viewJourney: "Ver Minha Jornada",
-      contactArrow: "\u2192",
     },
     header: {
       aria: {
@@ -43,7 +41,7 @@ export const translations = {
       nav: {
         projects: "Projetos",
         journey: "Jornada",
-        contact: "Contato",
+        about: "Sobre",
       },
     },
     hero: {
@@ -283,7 +281,6 @@ export const translations = {
         about: "Sobre",
         projects: "Projetos",
         journey: "Jornada",
-        contact: "Contato",
       },
       credit: "Desenvolvido por Pedro Fonseca",
     },
@@ -353,7 +350,7 @@ export const translations = {
       nav: {
         projects: "Projects",
         journey: "Journey",
-        contact: "Contact",
+        about: "About",
       },
     },
     hero: {
@@ -662,6 +659,7 @@ export const translations = {
         projects: "Proyectos",
         journey: "Trayectoria",
         contact: "Contacto",
+        about: "Acerca de",
       },
     },
     hero: {
