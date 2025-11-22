@@ -162,88 +162,76 @@ export default function PortfolioGrid() {
           ))}
         </div>
 
-        <motion.div
-          layout
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <motion.a
-                key={project.id}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                layout
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-                className="glass-card rounded-3xl overflow-hidden hover-lift transition-all duration-500 ease-out hover:border-primary/30 cursor-pointer block"
-              >
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-base font-bold text-primary px-3 py-1.5 bg-primary/20 rounded-lg border border-primary/30 shadow-sm">
-                      {project.category || "Outros"}
-                    </div>
-                    <div className="flex items-center gap-3 text-muted-foreground text-sm font-medium">
-                      {project.stars > 0 && (
-                        <div className="flex items-center gap-1">
-                          <Star className="w-4 h-4" />
-                          <span>{project.stars}</span>
-                        </div>
-                      )}
-                      {project.forks > 0 && (
-                        <div className="flex items-center gap-1">
-                          <GitFork className="w-4 h-4" />
-                          <span>{project.forks}</span>
-                        </div>
-                      )}
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <motion.a
+              key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="glass-card rounded-3xl overflow-hidden hover-lift transition-all duration-500 ease-out hover:border-primary/30 cursor-pointer block"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-base font-bold text-primary px-3 py-1.5 rounded-lg border border-primary/30">
+                    {project.category || "Outros"}
                   </div>
-
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="space-y-2 mb-4 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span className="font-medium">Criado:</span>
-                      <span>{formatTimeAgo(project.createdAt)}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <RefreshCw className="w-3.5 h-3.5" />
-                      <span className="font-medium">Atualizado:</span>
-                      <span>{formatTimeAgo(project.updatedAt)}</span>
-                    </div>
+                  <div className="flex items-center gap-3 text-muted-foreground text-sm font-medium">
+                    {project.stars > 0 && (
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4" />
+                        <span>{project.stars}</span>
+                      </div>
+                    )}
+                    {project.forks > 0 && (
+                      <div className="flex items-center gap-1">
+                        <GitFork className="w-4 h-4" />
+                        <span>{project.forks}</span>
+                      </div>
+                    )}
                   </div>
-
-                  {project.topics.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.topics.slice(0, 4).map((topic) => (
-                        <span
-                          key={topic}
-                          className="text-xs font-semibold bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 hover:border-primary/40 transition-colors"
-                        >
-                          #{topic}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
-              </motion.a>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+
+                <div className="space-y-2 mb-4 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span className="font-medium">Criado:</span>
+                    <span>{formatTimeAgo(project.createdAt)}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span className="font-medium">Atualizado:</span>
+                    <span>{formatTimeAgo(project.updatedAt)}</span>
+                  </div>
+                </div>
+
+                {project.topics.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.topics.slice(0, 4).map((topic) => (
+                      <span
+                        key={topic}
+                        className="text-xs font-semibold from-primary/20 to-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 hover:border-primary/40 transition-colors"
+                      >
+                        #{topic}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.a>
+          ))}
+        </div>
 
         {totalPages > 1 && (
           <motion.div
