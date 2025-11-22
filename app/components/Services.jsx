@@ -1,30 +1,34 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Code, Paintbrush, Megaphone, Smartphone } from "lucide-react"
+import { motion } from "framer-motion";
+import { Code, Paintbrush, Megaphone, Smartphone } from "lucide-react";
 
 const services = [
   {
     icon: <Paintbrush className="w-12 h-12 mb-4 text-blue-500" />,
     title: "UI/UX Design",
-    description: "Crafting intuitive and visually stunning interfaces that engage and delight users.",
+    description:
+      "Crafting intuitive and visually stunning interfaces that engage and delight users.",
   },
   {
     icon: <Code className="w-12 h-12 mb-4 text-green-500" />,
     title: "Web Development",
-    description: "Building robust, scalable, and high-performance websites and web applications.",
+    description:
+      "Building robust, scalable, and high-performance websites and web applications.",
   },
   {
     icon: <Megaphone className="w-12 h-12 mb-4 text-yellow-500" />,
     title: "Digital Marketing",
-    description: "Developing strategic campaigns that increase brand visibility and drive conversions.",
+    description:
+      "Developing strategic campaigns that increase brand visibility and drive conversions.",
   },
   {
     icon: <Smartphone className="w-12 h-12 mb-4 text-purple-500" />,
     title: "Mobile App Development",
-    description: "Creating innovative mobile applications for iOS and Android platforms.",
+    description:
+      "Creating innovative mobile applications for iOS and Android platforms.",
   },
-]
+];
 
 export default function Services() {
   return (
@@ -34,7 +38,8 @@ export default function Services() {
           className="text-5xl font-black mb-16 text-center text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}>
+          transition={{ duration: 0.8 }}
+        >
           Our Services
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -44,9 +49,12 @@ export default function Services() {
               className="glass-card p-6 rounded-lg hover:scale-105 transition-transform duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}>
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+            >
               {service.icon}
-              <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">
+                {service.title}
+              </h3>
               <p className="text-gray-300">{service.description}</p>
             </motion.div>
           ))}
