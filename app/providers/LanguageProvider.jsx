@@ -1,6 +1,14 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { translations, languageOptions } from "../constants/translations";
 
 const DEFAULT_LANGUAGE = "en";
@@ -46,16 +54,26 @@ export function LanguageProvider({
   children,
   defaultLanguage = DEFAULT_LANGUAGE,
 }) {
-  const [language, setLanguage] = useState(() =>
+  const hasUserSelection = useRef(false);
+  const [language, setLanguageState] = useState(() =>
     detectBrowserLanguage(defaultLanguage)
   );
+
+  const selectLanguage = useCallback((code) => {
+    hasUserSelection.current = true;
+    setLanguageState(code);
+  }, []);
 
   useEffect(() => {
     const browserLanguage = detectBrowserLanguage(defaultLanguage);
 
-    if (browserLanguage && browserLanguage !== language) {
+    if (
+      !hasUserSelection.current &&
+      browserLanguage &&
+      browserLanguage !== language
+    ) {
       const animationFrameId = requestAnimationFrame(() => {
-        setLanguage(browserLanguage);
+        setLanguageState(browserLanguage);
       });
 
       return () => cancelAnimationFrame(animationFrameId);
@@ -91,12 +109,12 @@ export function LanguageProvider({
 
     return {
       language,
-      setLanguage,
+      setLanguage: selectLanguage,
       t,
       dictionary,
       availableLanguages: languageOptions,
     };
-  }, [language]);
+  }, [language, selectLanguage]);
 
   return (
     <LanguageContext.Provider value={value}>
