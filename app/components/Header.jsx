@@ -7,10 +7,17 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { Github, Linkedin } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "../providers/LanguageProvider";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const { t, dictionary } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line
+    setMounted(true);
+  }, []);
 
   const isDarkMode = (theme === "system" ? resolvedTheme : theme) === "dark";
 
@@ -76,7 +83,9 @@ export default function Header() {
             className="glass-button rounded-full p-2 text-primary"
             aria-label={t("header.aria.themeToggle")}
           >
-            {isDarkMode ? (
+            {!mounted ? (
+              <div className="h-5 w-5" />
+            ) : isDarkMode ? (
               <SunIcon className="h-5 w-5" />
             ) : (
               <MoonIcon className="h-5 w-5" />
