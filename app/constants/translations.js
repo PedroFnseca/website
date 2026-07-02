@@ -157,7 +157,7 @@ export const translations = {
       events: [
         {
           year: 2020,
-          title: "Início na Tecnologia e Automação",
+          title: "Técnico em Automação Industrial",
           description:
             "Primeiros estudos formais em tecnologia e automação industrial.",
           details:
@@ -474,7 +474,7 @@ export const translations = {
       events: [
         {
           year: 2020,
-          title: "Start in Technology & Automation",
+          title: "Industrial Automation Technician",
           description:
             "First formal studies in technology and industrial automation.",
           details:
@@ -791,7 +791,7 @@ export const translations = {
       events: [
         {
           year: 2020,
-          title: "Inicio en Tecnología y Automatización",
+          title: "Técnico en Automatización Industrial",
           description:
             "Primeros estudios formales en tecnología y automatización industrial.",
           details:
