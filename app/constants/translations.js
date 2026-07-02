@@ -259,7 +259,7 @@ export const translations = {
         },
         {
           year: 2025,
-          title: "Promoção a Desenvolvedor Pleno",
+          title: "Desenvolvedor Full Stack Pleno no Grupo Raotes",
           description: "Ascensão profissional no Grupo Raotes.",
           details:
             "Promovido a Full Stack Software Developer Pleno, assumindo maiores responsabilidades na arquitetura de soluções, servidores on-premise e desenvolvimento mobile.",
@@ -575,7 +575,7 @@ export const translations = {
         },
         {
           year: 2025,
-          title: "Promotion to Mid-Level Developer",
+          title: "Mid-Level Full Stack Developer at Grupo Raotes",
           description: "Professional rise at Grupo Raotes.",
           details:
             "Promoted to Mid-Level Full Stack Software Developer, taking on greater responsibilities in solution architecture, on-premise servers, and mobile development.",
@@ -892,7 +892,7 @@ export const translations = {
         },
         {
           year: 2025,
-          title: "Promoción a Desarrollador Pleno",
+          title: "Desarrollador Full Stack Pleno en Grupo Raotes",
           description: "Ascenso profesional en Grupo Raotes.",
           details:
             "Promovido a Desarrollador de Software Full Stack Pleno (Semi-Senior), asumiendo mayores responsabilidades en la arquitectura de soluciones, servidores on-premise y desarrollo móvil.",
