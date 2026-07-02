@@ -274,6 +274,14 @@ export const translations = {
             "Retorno à instituição de origem para palestrar sobre mercado de trabalho e a importância de projetos reais.",
           type: "talk",
         },
+        {
+          year: 2026,
+          title: "Professor de Tecnologia da Informação",
+          description: "Professor no Senac São Paulo.",
+          details:
+            "Contratado pelo Senac São Paulo atuando na formação de novos profissionais de Tecnologia da Informação no curso de Assistente de Tecnologias da Informação, conduzindo aulas teóricas e práticas com foco em infraestrutura, redes de computadores, segurança da informação e suporte técnico.",
+          type: "career",
+        },
       ],
     },
     footer: {
@@ -580,6 +588,14 @@ export const translations = {
           details:
             "Returned to his alma mater to speak about the job market and the importance of real-world projects.",
           type: "talk",
+        },
+        {
+          year: 2026,
+          title: "Information Technology Teacher",
+          description: "Teacher at Senac São Paulo.",
+          details:
+            "Hired by Senac São Paulo to train new Information Technology professionals in the Information Technologies Assistant course, conducting theoretical and practical classes focusing on infrastructure, computer networks, information security, and technical support.",
+          type: "career",
         },
       ],
     },
@@ -889,6 +905,14 @@ export const translations = {
           details:
             "Regreso a la institución de origen para dar una charla sobre el mercado laboral y la importancia de proyectos reales.",
           type: "talk",
+        },
+        {
+          year: 2026,
+          title: "Profesor de Tecnología de la Información",
+          description: "Docente en Senac São Paulo.",
+          details:
+            "Contratado por Senac São Paulo actuando en la formación de nuevos profesionales de Tecnología de la Información en el curso de Asistente de Tecnologías de la Información, impartiendo clases teóricas y prácticas con enfoque en infraestructura, redes de computadoras, seguridad de la información y soporte técnico.",
+          type: "career",
         },
       ],
     },
