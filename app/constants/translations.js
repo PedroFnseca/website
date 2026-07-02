@@ -42,6 +42,7 @@ export const translations = {
         projects: "Projetos",
         journey: "Jornada",
         about: "Sobre",
+        contact: "Contato",
       },
     },
     hero: {
@@ -299,6 +300,11 @@ export const translations = {
         "Ops! A página que você está procurando não existe ou foi movida para outro lugar.",
       backHome: "Voltar para Home",
     },
+    contact: {
+      eyebrow: "Contato",
+      title: "Vamos conversar",
+      subtitle: "Estou disponível para novas oportunidades, projetos e colaborações.",
+    },
     services: {
       title: "Nossos Serviços",
       items: [
@@ -359,6 +365,7 @@ export const translations = {
         projects: "Projects",
         journey: "Journey",
         about: "About",
+        contact: "Contact",
       },
     },
     hero: {
@@ -615,6 +622,11 @@ export const translations = {
         "Oops! The page you're looking for doesn't exist or has been moved somewhere else.",
       backHome: "Back to Home",
     },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's talk",
+      subtitle: "I'm available for new opportunities, projects and collaborations.",
+    },
     services: {
       title: "Our Services",
       items: [
@@ -676,6 +688,7 @@ export const translations = {
         journey: "Trayectoria",
         contact: "Contacto",
         about: "Acerca de",
+        contact: "Contacto",
       },
     },
     hero: {
@@ -931,6 +944,11 @@ export const translations = {
       description:
         "¡Ups! La página que buscas no existe o ha sido movida a otro lugar.",
       backHome: "Volver al Inicio",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Hablemos",
+      subtitle: "Estoy disponible para nuevas oportunidades, proyectos y colaboraciones.",
     },
     services: {
       title: "Nuestros Servicios",

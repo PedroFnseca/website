@@ -4,6 +4,7 @@ import FeatureCarousel from "./components/FeatureCarousel";
 import PortfolioGrid from "./components/PortfolioGrid";
 import Timeline from "./components/Timeline";
 import Marquee from "./components/Marquee";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <PortfolioGrid />
       <Timeline />
       <Marquee />
+      <Contact />
     </>
   );
 }
