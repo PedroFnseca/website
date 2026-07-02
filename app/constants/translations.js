@@ -30,7 +30,7 @@ export const translations = {
     },
     general: {
       name: "Pedro Fonseca",
-      viewProjects: "Ver Projetos",
+      viewProjects: "Vamos conversar",
       viewJourney: "Ver Minha Jornada",
     },
     header: {
@@ -351,7 +351,7 @@ export const translations = {
     },
     general: {
       name: "Pedro Fonseca",
-      viewProjects: "View Projects",
+      viewProjects: "Let's talk",
       contactMe: "Contact Me",
       viewJourney: "View My Journey",
       contactArrow: "\u2192",
@@ -673,7 +673,7 @@ export const translations = {
     },
     general: {
       name: "Pedro Fonseca",
-      viewProjects: "Ver Proyectos",
+      viewProjects: "Hablemos",
       contactMe: "Contáctame",
       viewJourney: "Ver Mi Trayectoria",
       contactArrow: "\u2192",
