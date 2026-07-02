@@ -52,7 +52,7 @@ export default function Timeline() {
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
             {dictionary.timeline.title}
@@ -66,7 +66,7 @@ export default function Timeline() {
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           {filters.map((option) => (
             <button
@@ -112,7 +112,7 @@ export default function Timeline() {
 
 function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const isLeft = index % 2 === 0;
 
   const iconMap = {
@@ -131,7 +131,7 @@ function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
       }`}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      transition={{ duration: 0.35, delay: index * 0.04 }}
     >
       <div className="w-5/12" />
 
@@ -143,14 +143,14 @@ function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
           style={{ width: "calc(41.666% - 2rem)" }}
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
+          transition={{ duration: 0.25, delay: index * 0.04 }}
         />
 
         <motion.div
           className="flex items-center justify-center w-8 h-8 bg-primary rounded-full shadow-lg"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.4, delay: index * 0.1 }}
+          transition={{ duration: 0.2, delay: index * 0.04 }}
         >
           <div className="w-3 h-3 bg-background rounded-full" />
         </motion.div>

@@ -686,7 +686,6 @@ export const translations = {
       nav: {
         projects: "Proyectos",
         journey: "Trayectoria",
-        contact: "Contacto",
         about: "Acerca de",
         contact: "Contacto",
       },
