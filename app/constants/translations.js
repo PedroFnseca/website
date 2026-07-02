@@ -251,7 +251,7 @@ export const translations = {
         },
         {
           year: 2024,
-          title: "Palestra no Senac: Portfólio e GitHub",
+          title: "Palestra no Senac",
           description: "Apresentação no evento Tecnologia em Foco.",
           details:
             "Ministrou a palestra 'Construindo um Portfólio com GitHub', demonstrando automações reais e Github Actions.",
@@ -267,7 +267,7 @@ export const translations = {
         },
         {
           year: 2023,
-          title: "Palestra de Abertura na Etec de Embu",
+          title: "Palestra na Etec de Embu",
           description:
             "Abertura do evento anual de Desenvolvimento de Sistemas.",
           details:
@@ -567,7 +567,7 @@ export const translations = {
         },
         {
           year: 2024,
-          title: "Talk at Senac: Portfolio and GitHub",
+          title: "Talk at Senac",
           description: "Presentation at the 'Technology in Focus' event.",
           details:
             "Delivered the talk 'Building a Portfolio with GitHub', demonstrating real automations and GitHub Actions.",
@@ -583,7 +583,7 @@ export const translations = {
         },
         {
           year: 2023,
-          title: "Opening Talk at Etec Embu",
+          title: "Talk at Etec Embu",
           description: "Opening of the annual Systems Development event.",
           details:
             "Returned to his alma mater to speak about the job market and the importance of real-world projects.",
@@ -884,7 +884,7 @@ export const translations = {
         },
         {
           year: 2024,
-          title: "Charla en Senac: Portafolio y GitHub",
+          title: "Charla en Senac",
           description: "Presentación en el evento Tecnología en Foco.",
           details:
             "Impartió la charla 'Construyendo un Portafolio con GitHub', demostrando automatizaciones reales y GitHub Actions.",
@@ -900,7 +900,7 @@ export const translations = {
         },
         {
           year: 2023,
-          title: "Charla de Apertura en Etec de Embu",
+          title: "Charla en Etec de Embu",
           description: "Apertura del evento anual de Desarrollo de Sistemas.",
           details:
             "Regreso a la institución de origen para dar una charla sobre el mercado laboral y la importancia de proyectos reales.",
