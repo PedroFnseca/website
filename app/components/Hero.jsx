@@ -38,12 +38,7 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-        <motion.div
-          className="mx-auto mt-12 sm:mt-16 lg:mt-0 max-w-sm sm:max-w-md lg:max-w-none"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
+        <div className="mx-auto mt-12 sm:mt-16 lg:mt-0 max-w-sm sm:max-w-md lg:max-w-none">
           <div className="relative">
             <div className="w-full aspect-square max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] mx-auto rounded-2xl shadow-xl ring-1 ring-gray-900/10 overflow-hidden">
               <Image
@@ -51,12 +46,14 @@ export default function Hero() {
                 alt="Pedro Fonseca"
                 width={500}
                 height={500}
+                sizes="(max-width: 640px) 280px, (max-width: 1024px) 400px, 500px"
                 className="object-cover w-full h-full"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
