@@ -53,6 +53,17 @@ export const translations = {
       description:
         "Desenvolvedor full stack com foco em alta performance, capaz de criar soluções que vão desde sistemas de baixo nível até aplicações modernas em nuvem. Uno experiência prática, rigor técnico e curiosidade científica para transformar ideias em produtos reais, escaláveis e bem estruturados. Atuo com profundidade em backend, automações, engenharia de software e computação experimental sempre buscando inovação, clareza e impacto em cada projeto.",
     },
+    esp32Showcase: {
+      eyebrow: "Open Source · ESP32 / C++",
+      title: "ESP32 HTTP Client",
+      description:
+        "Cliente HTTP fluente e zero-heap para ESP32. Vincule respostas JSON e de APIs diretamente nas suas variáveis C++, sem parsers pesados ou boilerplate.",
+      stats: ["~0.0 KB heap", "~12x mais rápido", "REST · SOAP · GraphQL"],
+      primaryCta: "Começar agora",
+      secondaryCta: "Ver documentação",
+      copyLabel: "Copiar",
+      copiedLabel: "Copiado!",
+    },
     featureCarousel: {
       title: "Habilidades & Diferenciais",
       items: [
@@ -376,6 +387,17 @@ export const translations = {
       description:
         "Full stack developer focused on high performance, capable of building solutions from low-level systems to modern cloud applications. I combine practical experience, technical rigor, and scientific curiosity to transform ideas into real, scalable, and well-structured products. I work deeply with backend, automation, software engineering, and experimental computing, always seeking innovation, clarity, and impact.",
     },
+    esp32Showcase: {
+      eyebrow: "Open Source · ESP32 / C++",
+      title: "ESP32 HTTP Client",
+      description:
+        "Fluent, zero-heap HTTP client for ESP32. Bind JSON and API responses straight into your C++ variables—no heavy DOM parsers, no boilerplate.",
+      stats: ["~0.0 KB heap", "~12x faster", "REST · SOAP · GraphQL"],
+      primaryCta: "Get started",
+      secondaryCta: "Read the docs",
+      copyLabel: "Copy",
+      copiedLabel: "Copied!",
+    },
     featureCarousel: {
       title: "Skills & Highlights",
       items: [
@@ -697,6 +719,17 @@ export const translations = {
     wearYourStory: {
       description:
         "Desarrollador full stack enfocado en alto rendimiento, capaz de crear soluciones que van desde sistemas de bajo nivel hasta aplicaciones modernas en la nube. Combino experiencia práctica, rigor técnico y curiosidad científica para transformar ideas en productos reales, escalables y bien estructurados. Trabajo con profundidad en backend, automatización, ingeniería de software y computación experimental, siempre buscando innovación, claridad e impacto.",
+    },
+    esp32Showcase: {
+      eyebrow: "Open Source · ESP32 / C++",
+      title: "ESP32 HTTP Client",
+      description:
+        "Cliente HTTP fluido y zero-heap para ESP32. Vincula respuestas JSON y de APIs directamente en tus variables C++, sin parsers pesados ni boilerplate.",
+      stats: ["~0.0 KB heap", "~12x más rápido", "REST · SOAP · GraphQL"],
+      primaryCta: "Empezar ahora",
+      secondaryCta: "Ver documentación",
+      copyLabel: "Copiar",
+      copiedLabel: "¡Copiado!",
     },
     featureCarousel: {
       title: "Habilidades & Diferenciales",
