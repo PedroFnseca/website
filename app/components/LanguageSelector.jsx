@@ -67,19 +67,22 @@ export default function LanguageSelector() {
         type="button"
         onClick={toggleOpen}
         className="glass-button flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        aria-label={t("header.aria.languageSelector")}
+        aria-label={`${currentLanguage?.shortLabel ?? language} - ${t(
+          "header.aria.languageSelector"
+        )}`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         {CurrentIcon && (
           <CurrentIcon
+            aria-hidden="true"
             className={`h-4 w-4 ${
               currentLanguage?.colorClass ?? "text-primary"
             }`}
           />
         )}
         <span>{currentLanguage?.shortLabel ?? language}</span>
-        <ChevronDown className="h-3 w-3" />
+        <ChevronDown aria-hidden="true" className="h-3 w-3" />
       </button>
 
       {isOpen && (
