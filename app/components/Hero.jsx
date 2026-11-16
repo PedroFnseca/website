@@ -1,60 +1,84 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowDown, Github, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../providers/LanguageProvider";
 
 export default function Hero() {
-  const { dictionary, t } = useLanguage();
+  const { dictionary } = useLanguage();
+  const hero = dictionary.hero;
+
+  const handleScrollToProjects = (e) => {
+    e.preventDefault();
+    const el = document.querySelector("#projects");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
-    <div className="relative isolate overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20 lg:flex lg:items-center lg:gap-x-10 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg lg:flex-shrink-0">
-          <motion.h1
-            className="mt-4 sm:mt-10 text-3xl sm:text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-gradient">{dictionary.general.name}</span>
-          </motion.h1>
-          <motion.p
-            className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t("hero.subtitle")}
-          </motion.p>
-          <motion.div
-            className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-x-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <a href="#contact" className="apple-button text-center">
-              {dictionary.general.viewProjects}
-            </a>
-          </motion.div>
-        </div>
-        <div className="mx-auto mt-12 sm:mt-16 lg:mt-0 max-w-sm sm:max-w-md lg:max-w-none">
-          <div className="relative">
-            <div className="w-full aspect-square max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] mx-auto rounded-2xl shadow-xl ring-1 ring-gray-900/10 overflow-hidden">
-              <Image
-                src="/pedro-fonseca.jpg"
-                alt="Pedro Fonseca"
-                width={500}
-                height={500}
-                sizes="(max-width: 640px) 280px, (max-width: 1024px) 400px, 500px"
-                className="object-cover w-full h-full"
-                priority
-                fetchPriority="high"
-              />
+    <section className="border-b border-border bg-background py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
+          {/* Coluna de texto */}
+          <div className="md:col-span-8 space-y-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-tech" aria-hidden="true" />
+              <span>{hero.badge}</span>
+            </div>
+
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-foreground leading-[1.15]">
+              {hero.headline}
+            </h1>
+
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-2xl">
+              {hero.subtitle}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#projects"
+                onClick={handleScrollToProjects}
+                className="btn-primary"
+              >
+                <span>{hero.viewProjects}</span>
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+
+              <a
+                href="https://github.com/PedroFnseca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                <Github className="h-4 w-4" aria-hidden="true" />
+                <span>{hero.viewGithub}</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          {/* Coluna da foto */}
+          <div className="md:col-span-4 flex justify-start md:justify-end">
+            <div className="w-full max-w-[240px] sm:max-w-[280px]">
+              <div className="relative aspect-square overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
+                <Image
+                  src="/pedro-fonseca.jpg"
+                  alt="Pedro Fonseca"
+                  width={400}
+                  height={400}
+                  sizes="(max-width: 640px) 240px, 280px"
+                  className="object-cover w-full h-full grayscale-[25%] contrast-[105%]"
+                  priority
+                  fetchPriority="high"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground font-mono">
+                <span>Pedro Fonseca</span>
+                <span className="text-foreground font-medium">São Paulo, BR</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

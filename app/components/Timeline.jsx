@@ -1,208 +1,113 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useScroll, useSpring, useInView } from "framer-motion";
-import { GraduationCap, Briefcase, Users, Mic, Rocket } from "lucide-react";
+import { useState } from "react";
+import { Briefcase, GraduationCap, Building2 } from "lucide-react";
 import { useLanguage } from "../providers/LanguageProvider";
 
-const FILTER_ICON_MAP = {
-  GraduationCap,
-  Briefcase,
-  Users,
-  Mic,
-};
-
 export default function Timeline() {
-  const [expandedEvent, setExpandedEvent] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const containerRef = useRef(null);
   const { dictionary } = useLanguage();
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
 
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const filters = dictionary.timeline.filters.map((filter) => ({
-    ...filter,
-    Icon: filter.icon ? FILTER_ICON_MAP[filter.icon] ?? null : null,
-  }));
-
-  const events = dictionary.timeline.events;
+  const content = dictionary.experience || dictionary.timeline;
+  const filters = content.filters || [];
+  const events = content.events || [];
 
   const filteredEvents = (
     selectedFilter === "all"
       ? events
       : events.filter((event) => event.type === selectedFilter)
-  ).sort((a, b) => b.year - a.year);
+  ).sort((a, b) => (b.sortYear || b.year) - (a.sortYear || a.year));
 
   return (
     <section
-      id="timeline"
-      ref={containerRef}
-      className="py-20 bg-background overflow-hidden"
+      id="experience"
+      className="scroll-mt-16 py-16 sm:py-20 bg-background border-b border-border"
+      aria-labelledby="experience-title"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            {dictionary.timeline.title}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Cabeçalho da seção */}
+        <div className="mb-8 space-y-2 max-w-2xl">
+          <span className="section-eyebrow block">
+            Trajetória
+          </span>
+          <h2 id="experience-title" className="section-title">
+            {content.title}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            {dictionary.timeline.subtitle}
+          <p className="text-sm sm:text-base text-muted-foreground">
+            {content.subtitle}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-        >
-          {filters.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => setSelectedFilter(option.value)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
-                selectedFilter === option.value
-                  ? "glass-button scale-110 border-primary/50"
-                  : "glass-button opacity-70 hover:opacity-100 hover:scale-105"
-              }`}
-            >
-              {option.Icon && <option.Icon className="w-4 h-4" />}
-              <span className="text-sm font-medium">{option.label}</span>
-            </button>
-          ))}
-        </motion.div>
+        {/* Filtros */}
+        <div className="flex flex-wrap gap-2 border-b border-border pb-4 mb-8">
+          {filters.map((option) => {
+            const isActive = selectedFilter === option.value;
+            return (
+              <button
+                key={option.value}
+                onClick={() => setSelectedFilter(option.value)}
+                className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${
+                  isActive
+                    ? "bg-foreground text-background"
+                    : "bg-secondary/60 text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </div>
 
-        <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary/30" />
+        {/* Lista cronológica inversa */}
+        <div className="space-y-6">
+          {filteredEvents.map((event, index) => {
+            const isCareer = event.type === "career";
+            return (
+              <div
+                key={`${event.year}-${event.title}-${index}`}
+                className="grid grid-cols-1 md:grid-cols-12 gap-4 pb-6 border-b border-border last:border-b-0"
+              >
+                {/* Período / Ano */}
+                <div className="md:col-span-3">
+                  <span className="font-mono text-xs font-semibold text-tech block">
+                    {event.year}
+                  </span>
+                  {event.organization && (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground mt-0.5">
+                      <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span>{event.organization}</span>
+                    </span>
+                  )}
+                </div>
 
-          <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary origin-top"
-            style={{ scaleY: scaleX }}
-          />
+                {/* Detalhes & Descrição */}
+                <div className="md:col-span-9 space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    {isCareer ? (
+                      <Briefcase className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                    ) : (
+                      <GraduationCap className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                    )}
+                    <h3 className="text-base font-semibold text-foreground">
+                      {event.title}
+                    </h3>
+                  </div>
 
-          {filteredEvents.map((event, index) => (
-            <TimelineEvent
-              key={index}
-              event={event}
-              index={index}
-              isExpanded={expandedEvent === index}
-              onToggle={() =>
-                setExpandedEvent(expandedEvent === index ? null : index)
-              }
-              isLast={index === filteredEvents.length - 1}
-            />
-          ))}
+                  {event.role && (
+                    <p className="text-xs font-medium text-foreground/80">
+                      {event.role}
+                    </p>
+                  )}
+
+                  <p className="text-sm leading-relaxed text-muted-foreground pt-1">
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
-  );
-}
-
-function TimelineEvent({ event, index, isExpanded, onToggle, isLast }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const isLeft = index % 2 === 0;
-
-  const iconMap = {
-    education: <GraduationCap className="w-4 h-4 text-primary" />,
-    career: <Briefcase className="w-4 h-4 text-primary" />,
-    community: <Users className="w-4 h-4 text-primary" />,
-    talk: <Mic className="w-4 h-4 text-primary" />,
-    project: <Rocket className="w-4 h-4 text-primary" />,
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      className={`mb-8 flex justify-between items-center w-full relative ${
-        isLeft ? "flex-row-reverse" : ""
-      }`}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.35, delay: index * 0.04 }}
-    >
-      <div className="w-5/12" />
-
-      <div className="z-20 relative">
-        <motion.div
-          className={`absolute top-1/2 -translate-y-1/2 h-0.5 bg-primary/40 ${
-            isLeft ? "right-8 origin-right" : "left-8 origin-left"
-          }`}
-          style={{ width: "calc(41.666% - 2rem)" }}
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.25, delay: index * 0.04 }}
-        />
-
-        <motion.div
-          className="flex items-center justify-center w-8 h-8 bg-primary rounded-full shadow-lg"
-          initial={{ scale: 0 }}
-          animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.2, delay: index * 0.04 }}
-        >
-          <div className="w-3 h-3 bg-background rounded-full" />
-        </motion.div>
-      </div>
-
-      <motion.div
-        className="w-5/12 cursor-pointer relative"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={onToggle}
-      >
-        <motion.div
-          className="absolute inset-0 bg-primary/5 rounded-lg blur-xl"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        <div className="p-4 glass-card rounded-lg relative overflow-hidden">
-          <div
-            className={`absolute top-0 ${
-              isLeft ? "left-0" : "right-0"
-            } w-12 h-12 bg-primary/5 ${
-              isLeft ? "rounded-br-full" : "rounded-bl-full"
-            }`}
-          />
-
-          <div className="flex items-center gap-2 mb-2 relative z-10">
-            {iconMap[event.type]}
-            <span className="font-bold text-primary">{event.year}</span>
-          </div>
-          <h3 className="text-lg font-semibold mb-1 relative z-10">
-            {event.title}
-          </h3>
-          <p className="text-muted-foreground relative z-10">
-            {event.description}
-          </p>
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{
-              height: isExpanded ? "auto" : 0,
-              opacity: isExpanded ? 1 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <p className="mt-2 text-sm text-muted-foreground relative z-10">
-              {event.details}
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-    </motion.div>
   );
 }

@@ -1,22 +1,20 @@
 import Hero from "./components/Hero";
-import WearYourStory from "./components/WearYourStory";
 import Esp32HttpClientShowcase from "./components/Esp32HttpClientShowcase";
-import FeatureCarousel from "./components/FeatureCarousel";
+import FeaturedCases from "./components/FeaturedCases";
 import PortfolioGrid from "./components/PortfolioGrid";
 import Timeline from "./components/Timeline";
-import Marquee from "./components/Marquee";
+import AboutSection from "./components/AboutSection";
 import Contact from "./components/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <WearYourStory />
       <Esp32HttpClientShowcase />
-      <FeatureCarousel />
+      <FeaturedCases />
       <PortfolioGrid />
       <Timeline />
-      <Marquee />
+      <AboutSection />
       <Contact />
     </>
   );
