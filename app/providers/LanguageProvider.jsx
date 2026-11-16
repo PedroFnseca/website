@@ -55,9 +55,7 @@ export function LanguageProvider({
   defaultLanguage = DEFAULT_LANGUAGE,
 }) {
   const hasUserSelection = useRef(false);
-  const [language, setLanguageState] = useState(() =>
-    detectBrowserLanguage(defaultLanguage)
-  );
+  const [language, setLanguageState] = useState(defaultLanguage);
 
   const selectLanguage = useCallback((code) => {
     hasUserSelection.current = true;
