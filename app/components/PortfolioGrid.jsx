@@ -2,34 +2,29 @@
 
 import { useCallback, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Star, GitFork, ArrowUpRight, Code2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, GitFork, Calendar, RefreshCw } from "lucide-react";
 import { fetchGitHubRepos } from "../services/githubService";
 import { useLanguage } from "../providers/LanguageProvider";
 
-const LANGUAGE_DOT_COLOR = {
-  javascript: "bg-amber-400",
-  c: "bg-sky-500",
-  csharp: "bg-violet-500",
-  python: "bg-emerald-500",
-  java: "bg-orange-500",
-  other: "bg-zinc-400",
-};
-
 export default function PortfolioGrid() {
   const { dictionary } = useLanguage();
-  const portfolio = dictionary.portfolio;
-  const categories = portfolio.categories;
-  const categoryMap = portfolio.languageCategoryMap;
-  const categoryLabels = portfolio.categoryLabels;
-  const fallbackCategoryLabel = portfolio.labels.fallbackCategory;
+  const categories = dictionary.portfolio.categories;
+  const categoryMap = dictionary.portfolio.languageCategoryMap;
+  const categoryLabels = dictionary.portfolio.categoryLabels;
+  const fallbackCategoryLabel = dictionary.portfolio.labels.fallbackCategory;
 
-  const [filter, setFilter] = useState(() => categories[0]?.value ?? "featured");
+  const [filter, setFilter] = useState(
+    () => categories[0]?.value ?? "featured"
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   const formatTimeAgo = useCallback(
     (dateString) => {
-      if (!dateString) return "";
+      if (!dateString) {
+        return "";
+      }
 
       const date = new Date(dateString);
       const now = new Date();
@@ -47,18 +42,18 @@ export default function PortfolioGrid() {
       for (const interval of intervals) {
         const quantity = Math.floor(seconds / interval.value);
         if (quantity >= 1) {
-          const labels = portfolio.timeAgo.units[interval.key] || {};
+          const labels = dictionary.portfolio.timeAgo.units[interval.key] || {};
           const label =
             quantity === 1
               ? labels.singular ?? interval.key
               : labels.plural ?? `${interval.key}s`;
-          return `${portfolio.timeAgo.prefix} ${quantity} ${label}`;
+          return `${dictionary.portfolio.timeAgo.prefix} ${quantity} ${label}`;
         }
       }
 
-      return portfolio.timeAgo.justNow;
+      return dictionary.portfolio.timeAgo.justNow;
     },
-    [portfolio.timeAgo]
+    [dictionary.portfolio.timeAgo]
   );
 
   const { data, isLoading, isError, error } = useQuery({
@@ -85,9 +80,7 @@ export default function PortfolioGrid() {
 
   const getFilteredProjects = () => {
     if (filter === "featured") {
-      return [...normalizedProjects]
-        .sort((a, b) => b.stars - a.stars)
-        .slice(0, 6);
+      return normalizedProjects.sort((a, b) => b.stars - a.stars).slice(0, 6);
     }
     if (filter === "all") {
       return normalizedProjects;
@@ -110,11 +103,14 @@ export default function PortfolioGrid() {
 
   if (isLoading) {
     return (
-      <section id="projects" className="scroll-mt-16 py-16 bg-background border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <p className="font-mono text-xs text-muted-foreground">
-            {portfolio.loading}
-          </p>
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
+            <p className="mt-4 text-muted-foreground">
+              {dictionary.portfolio.loading}
+            </p>
+          </div>
         </div>
       </section>
     );
@@ -122,183 +118,191 @@ export default function PortfolioGrid() {
 
   if (isError) {
     return (
-      <section id="projects" className="scroll-mt-16 py-16 bg-background border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <p className="font-mono text-xs text-red-500">
-            {portfolio.errorPrefix}: {error.message}
-          </p>
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-red-500">
+              {dictionary.portfolio.errorPrefix}: {error.message}
+            </p>
+          </div>
         </div>
       </section>
     );
   }
 
   return (
-    <section
-      id="projects"
-      className="scroll-mt-16 py-16 sm:py-20 bg-background border-b border-border"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="space-y-1">
-            <span className="section-eyebrow block">
-              Repositórios
-            </span>
-            <h2 className="section-title">{portfolio.title}</h2>
-            <p className="text-sm text-muted-foreground">
-              <span className="font-mono font-medium text-foreground">
-                {stats.totalRepos}
-              </span>{" "}
-              {portfolio.subtitleSuffix}
-            </p>
+    <section id="projects" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+            {dictionary.portfolio.title}
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            {stats.totalRepos} {dictionary.portfolio.subtitleSuffix}
+          </p>
+          <div className="flex justify-center gap-6 mt-4">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Star className="w-5 h-5" />
+              <span className="font-semibold">
+                {stats.totalStars} {dictionary.portfolio.stats.stars}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <GitFork className="w-5 h-5" />
+              <span className="font-semibold">
+                {stats.totalForks} {dictionary.portfolio.stats.forks}
+              </span>
+            </div>
           </div>
+        </motion.div>
 
-          <div className="flex items-center gap-2.5 font-mono text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5 rounded border border-border bg-card px-2.5 py-1">
-              <Star className="w-3.5 h-3.5 text-tech" />
-              <span className="font-semibold text-foreground">
-                {stats.totalStars}
-              </span>
-              <span>{portfolio.stats.stars}</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded border border-border bg-card px-2.5 py-1">
-              <GitFork className="w-3.5 h-3.5 text-tech" />
-              <span className="font-semibold text-foreground">
-                {stats.totalForks}
-              </span>
-              <span>{portfolio.stats.forks}</span>
-            </span>
-          </div>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 px-4">
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              onClick={() => handleFilterChange(category.value)}
+              className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                filter === category.value
+                  ? "glass-button scale-105 sm:scale-110"
+                  : "glass-button opacity-70 hover:opacity-100"
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
         </div>
 
-        {/* Abas de categoria */}
-        <div className="flex flex-wrap gap-2 border-b border-border pb-3 mb-6">
-          {categories.map((category) => {
-            const isActive = filter === category.value;
-            return (
-              <button
-                key={category.value}
-                onClick={() => handleFilterChange(category.value)}
-                className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
-                  isActive
-                    ? "bg-foreground text-background"
-                    : "bg-secondary/60 text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {category.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Grid de Projetos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredProjects.map((project) => {
-            const dotColor =
-              LANGUAGE_DOT_COLOR[project.normalizedCategory] ||
-              LANGUAGE_DOT_COLOR.other;
-
-            return (
-              <a
-                key={project.id}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-lg border border-border bg-card p-5 transition-colors duration-150 hover:border-tech/40 flex flex-col justify-between gap-3 shadow-none"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <span className={`h-2 w-2 rounded-full ${dotColor}`} />
-                      <span className="font-mono text-[11px] text-foreground">
-                        {project.displayCategory}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-                      {project.stars > 0 && (
-                        <span className="inline-flex items-center gap-1">
-                          <Star className="w-3 h-3" />
-                          {project.stars}
-                        </span>
-                      )}
-                      {project.forks > 0 && (
-                        <span className="inline-flex items-center gap-1">
-                          <GitFork className="w-3 h-3" />
-                          {project.forks}
-                        </span>
-                      )}
-                      <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground/60 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <motion.a
+              key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="glass-card rounded-3xl overflow-hidden hover-lift transition-all duration-500 ease-out hover:border-primary/30 cursor-pointer block"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-base font-bold text-primary px-3 py-1.5 rounded-lg border border-primary/30">
+                    {project.displayCategory}
                   </div>
-
-                  <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-tech transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
+                  <div className="flex items-center gap-3 text-muted-foreground text-sm font-medium">
+                    {project.stars > 0 && (
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4" />
+                        <span>{project.stars}</span>
+                      </div>
+                    )}
+                    {project.forks > 0 && (
+                      <div className="flex items-center gap-1">
+                        <GitFork className="w-4 h-4" />
+                        <span>{project.forks}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-border text-[11px] text-muted-foreground">
-                  <div className="flex flex-wrap gap-1">
-                    {project.topics.slice(0, 2).map((topic) => (
-                      <span key={topic} className="font-mono text-[10px] text-muted-foreground">
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+
+                <div className="space-y-2 mb-4 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span className="font-medium">
+                      {dictionary.portfolio.labels.created}
+                    </span>
+                    <span>{formatTimeAgo(project.createdAt)}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span className="font-medium">
+                      {dictionary.portfolio.labels.updated}
+                    </span>
+                    <span>{formatTimeAgo(project.updatedAt)}</span>
+                  </div>
+                </div>
+
+                {project.topics.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.topics.slice(0, 4).map((topic) => (
+                      <span
+                        key={topic}
+                        className="text-xs font-semibold from-primary/20 to-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 hover:border-primary/40 transition-colors"
+                      >
                         #{topic}
                       </span>
                     ))}
                   </div>
-                  <span className="font-mono text-[10px] shrink-0">
-                    {formatTimeAgo(project.updatedAt)}
-                  </span>
-                </div>
-              </a>
-            );
-          })}
+                )}
+              </div>
+            </motion.a>
+          ))}
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 mt-8">
+          <motion.div
+            className="flex justify-center items-center gap-2 mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          >
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className={`px-2.5 py-1 rounded text-xs font-mono transition-colors border border-border ${
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-out ${
                 currentPage === 1
-                  ? "text-muted-foreground/30 border-border/40 cursor-not-allowed"
-                  : "bg-card text-foreground hover:bg-secondary"
+                  ? "glass-button opacity-50 cursor-not-allowed"
+                  : "glass-button hover:scale-105"
               }`}
             >
-              {portfolio.buttons.previous}
+              {dictionary.portfolio.buttons.previous}
             </button>
 
-            <div className="flex gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={`w-7 h-7 rounded text-xs font-mono transition-colors ${
-                    currentPage === page
-                      ? "bg-foreground text-background"
-                      : "border border-border bg-card text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-10 h-10 rounded-lg font-medium transition-all duration-500 ease-out ${
+                      currentPage === page
+                        ? "glass-button scale-110 border-primary/50"
+                        : "glass-button opacity-70 hover:opacity-100 hover:scale-105"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                )
+              )}
             </div>
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages}
-              className={`px-2.5 py-1 rounded text-xs font-mono transition-colors border border-border ${
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-500 ease-out ${
                 currentPage === totalPages
-                  ? "text-muted-foreground/30 border-border/40 cursor-not-allowed"
-                  : "bg-card text-foreground hover:bg-secondary"
+                  ? "glass-button opacity-50 cursor-not-allowed"
+                  : "glass-button hover:scale-105"
               }`}
             >
-              {portfolio.buttons.next}
+              {dictionary.portfolio.buttons.next}
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

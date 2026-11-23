@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../providers/LanguageProvider";
 
@@ -28,55 +29,65 @@ const contacts = [
 ];
 
 export default function Contact() {
-  const { dictionary } = useLanguage();
-  const contact = dictionary.contact;
+  const { t } = useLanguage();
 
   return (
     <section
       id="contact"
-      className="scroll-mt-16 bg-background py-16 sm:py-20 border-b border-border"
-      aria-labelledby="contact-heading"
+      className="bg-background py-24 sm:py-32"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-xl mb-10 space-y-2">
-          <span className="section-eyebrow block">
-            {contact.eyebrow}
-          </span>
-          <h2 id="contact-heading" className="section-title">
-            {contact.title}
-          </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-            {contact.subtitle}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          className="mx-auto max-w-xl text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+            {t("contact.eyebrow")}
           </p>
-        </div>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            {t("contact.title")}
+          </h2>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
+            {t("contact.subtitle")}
+          </p>
+        </motion.div>
 
-        <div className="max-w-2xl divide-y divide-border border-t border-b border-border">
-          {contacts.map((item) => {
+        {/* Contact cards */}
+        <div className="mx-auto max-w-2xl divide-y divide-border">
+          {contacts.map((item, i) => {
             const Icon = item.icon;
             return (
-              <a
+              <motion.a
                 key={item.id}
                 href={item.href}
                 target={item.id !== "email" ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 id={`contact-${item.id}`}
-                className="group flex items-center justify-between py-4 text-foreground transition-colors"
+                className="group flex items-center justify-between py-6 text-foreground transition-colors hover:text-foreground"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <div className="flex items-center gap-3.5">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-card text-muted-foreground group-hover:text-foreground transition-colors">
+                <div className="flex items-center gap-5">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-colors group-hover:border-foreground group-hover:text-foreground">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-0.5">
                       {item.label}
                     </p>
-                    <p className="text-sm font-medium text-foreground group-hover:text-tech transition-colors">
+                    <p className="text-sm font-medium text-foreground">
                       {item.value}
                     </p>
                   </div>
                 </div>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
-              </a>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
+              </motion.a>
             );
           })}
         </div>

@@ -25,15 +25,13 @@ export const languageOptions = [
 export const translations = {
   "pt-BR": {
     metadata: {
-      title: "Pedro Fonseca | Desenvolvedor Full Stack",
-      description:
-        "Portfólio de Pedro Fonseca — Desenvolvedor Full Stack especializado em Mobile, Web, Backend, Banco de Dados, Nuvem e Performance.",
+      title: "Pedro Fonseca | Full Stack Developer",
+      description: "Portfólio de Pedro Fonseca - Desenvolvedor Full Stack",
     },
     general: {
       name: "Pedro Fonseca",
-      role: "Desenvolvedor Full Stack",
-      viewProjects: "Ver Projetos",
-      contactMe: "Entrar em contato",
+      viewProjects: "Vamos conversar",
+      viewJourney: "Ver Minha Jornada",
     },
     header: {
       aria: {
@@ -42,74 +40,80 @@ export const translations = {
       },
       nav: {
         projects: "Projetos",
-        experience: "Experiência",
+        journey: "Jornada",
         about: "Sobre",
         contact: "Contato",
       },
     },
     hero: {
-      badge: "Mobile · Web · Backend · Banco · Nuvem",
-      headline:
-        "Desenvolvedor Full Stack — Mobile, Web, Backend, Banco de Dados e Nuvem.",
       subtitle:
-        "Desenvolvo aplicações completas com foco em estabilidade e performance: interfaces web e mobile, APIs escaláveis, modelagem de bancos de dados e infraestrutura. Nas horas livres, mantenho projetos open source e exploro IoT e desenvolvimento em C/C++ para sistemas embarcados como hobby.",
-      viewProjects: "Ver projetos",
-      viewGithub: "GitHub",
+        "Desenvolvedor Full Stack apaixonado por tecnologia, ciência e inovação. Criando soluções elegantes e eficientes do baixo nível à nuvem.",
+    },
+    wearYourStory: {
+      description:
+        "Desenvolvedor full stack com foco em alta performance, capaz de criar soluções que vão desde sistemas de baixo nível até aplicações modernas em nuvem. Uno experiência prática, rigor técnico e curiosidade científica para transformar ideias em produtos reais, escaláveis e bem estruturados. Atuo com profundidade em backend, automações, engenharia de software e computação experimental sempre buscando inovação, clareza e impacto em cada projeto.",
     },
     esp32Showcase: {
-      eyebrow: "Projeto Open Source · Hobby em C++",
+      eyebrow: "Open Source · ESP32 / C++",
       title: "ESP32 HTTP Client",
       description:
-        "Biblioteca C++ para ESP32 projetada para simplificar requisições HTTP e realizar parsing de dados em streaming com baixo uso de memória (low-allocation). Permite vincular campos diretamente a variáveis ou estruturas sem alocar buffers intermediários pesados na RAM.",
-      stats: ["Streaming de dados", "Low-allocation", "REST · JSON · APIs"],
-      benchmarkNote:
-        "Cenário de teste: 100 requisições GET sequenciais com payload JSON no JSONPlaceholder via Arduino Core para ESP32.",
-      primaryCta: "Ver no GitHub",
-      secondaryCta: "Documentação oficial",
-      copyLabel: "Copiar código",
+        "Cliente HTTP fluente e zero-heap para ESP32. Vincule respostas JSON e de APIs diretamente nas suas variáveis C++, sem parsers pesados ou boilerplate.",
+      stats: ["~0.0 KB heap", "~12x mais rápido", "REST · SOAP · GraphQL"],
+      primaryCta: "Começar agora",
+      secondaryCta: "Ver documentação",
+      copyLabel: "Copiar",
       copiedLabel: "Copiado!",
     },
-    featuredCases: {
-      eyebrow: "Aplicações em Produção",
-      title: "Sistemas & Trabalhos Reais",
-      subtitle:
-        "Projetos construídos para resolver problemas operacionais e de negócio.",
+    featureCarousel: {
+      title: "Habilidades & Diferenciais",
       items: [
         {
-          tag: "Produção Corporativa",
-          title: "Sistemas Web, Mobile & Infraestrutura — Grupo Raotes",
+          title: "Full Stack Expertise",
           description:
-            "Desenvolvimento de módulos de software para aplicações corporativas multiplataforma (Vue, Quasar, Capacitor). Implementação de APIs em Node.js com banco de dados PostgreSQL e atuação na estabilidade e monitoramento de servidores on-premise.",
-          context:
-            "Foco em sincronização confiável de dados, manutenibilidade de código e observabilidade para garantir a continuidade da operação.",
-          stack: "Vue · Quasar · Capacitor · Node.js · PostgreSQL · Linux On-Premise",
+            "Domínio sólido em backend, frontend e arquiteturas distribuídas, entregando soluções completas de ponta a ponta.",
+          icon: "Layers",
         },
         {
-          tag: "Gestão Escolar",
-          title: "Sistema de Biblioteca — ETEC",
+          title: "Baixo Nível & Alto Desempenho",
           description:
-            "Aplicação desenvolvida durante estágio curricular para organizar o acervo e o fluxo de empréstimo e devolução de livros da instituição de ensino.",
-          context:
-            "Substituiu controles manuais por um fluxo digital centralizado, atendendo diretamente à equipe escolar e aos estudantes.",
-          stack: "React · Node.js · MySQL · Azure",
+            "Experiência com C, JavaScript e otimização, criando sistemas performáticos e entendendo profundamente o funcionamento interno do software.",
+          icon: "Settings",
+        },
+        {
+          title: "Inovação Contínua",
+          description:
+            "Explora IA, computação quântica e biotecnologia, transformando curiosidade em projetos reais e experimentos técnicos.",
+          icon: "Microscope",
+        },
+        {
+          title: "Palestrante & Educador",
+          description:
+            "Palestras em SENAI, SENAC, ETEC e GDG, ensinando GitHub Actions, deploy, automações e boas práticas de desenvolvimento.",
+          icon: "Presentation",
+        },
+        {
+          title: "Projetos do Zero",
+          description:
+            "Criação de soluções completas do zero: jogos em C, APIs próprias, pipelines automatizados e sistemas experimentais.",
+          icon: "Rocket",
         },
       ],
     },
     portfolio: {
-      title: "Repositórios & Projetos Públicos",
-      subtitleSuffix: "projetos no GitHub",
+      title: "Meus Projetos",
+      subtitleSuffix: "repositórios públicos no GitHub",
       stats: {
         stars: "stars",
         forks: "forks",
       },
       loading: "Carregando projetos...",
-      errorPrefix: "Erro ao carregar projetos do GitHub",
+      errorPrefix: "Erro ao carregar projetos",
       buttons: {
         previous: "Anterior",
         next: "Próxima",
       },
       labels: {
-        created: "Criado em:",
+        created: "Criado:",
         updated: "Atualizado:",
         fallbackCategory: "Outros",
       },
@@ -128,8 +132,8 @@ export const translations = {
       categories: [
         { value: "featured", label: "Destaques" },
         { value: "all", label: "Todos" },
-        { value: "javascript", label: "JavaScript / TS" },
-        { value: "c", label: "C / C++" },
+        { value: "javascript", label: "JavaScript" },
+        { value: "c", label: "C" },
         { value: "csharp", label: "C#" },
         { value: "python", label: "Python" },
         { value: "java", label: "Java" },
@@ -138,122 +142,165 @@ export const translations = {
         JavaScript: "javascript",
         TypeScript: "javascript",
         C: "c",
-        "C++": "c",
         "C#": "csharp",
         Python: "python",
         "Jupyter Notebook": "python",
         Java: "java",
       },
       categoryLabels: {
-        javascript: "JavaScript / TypeScript",
-        c: "C / C++",
+        javascript: "JavaScript",
+        c: "C",
         csharp: "C#",
         python: "Python",
         java: "Java",
         other: "Outros",
       },
     },
-    experience: {
-      title: "Experiência Profissional",
-      subtitle: "Minha atuação no mercado e na docência técnica.",
+    timeline: {
+      title: "Minha Jornada",
+      subtitle: "A minha evolução ao longo dos anos",
       filters: [
-        { value: "all", label: "Todos" },
-        { value: "career", label: "Carreira" },
-        { value: "education", label: "Formação" },
+        { value: "all", label: "Todos", icon: null },
+        { value: "education", label: "Educação", icon: "GraduationCap" },
+        { value: "career", label: "Carreira", icon: "Briefcase" },
+        { value: "community", label: "Comunidade", icon: "Users" },
+        { value: "talk", label: "Palestras", icon: "Mic" },
       ],
       events: [
         {
-          year: "2026 – Atual",
-          sortYear: 2026,
-          title: "Docência em Tecnologia da Informação",
-          organization: "Senac São Paulo",
-          role: "Instrutor Técnico de TI",
-          description:
-            "Conduzo aulas teóricas e práticas focadas em infraestrutura, redes de computadores, suporte técnico e segurança, formando novos profissionais para a área de TI.",
-          type: "career",
-        },
-        {
-          year: "2025 – Atual",
-          sortYear: 2025,
-          title: "Desenvolvedor Full Stack Pleno",
-          organization: "Grupo Raotes / WebGR",
-          role: "Full Stack Developer",
-          description:
-            "Responsável pelo desenvolvimento de aplicações corporativas web e mobile (Vue/Quasar/Capacitor), criação de serviços em Node.js com PostgreSQL e sustentação da infraestrutura on-premise com foco em observabilidade.",
-          type: "career",
-        },
-        {
-          year: "2024 – Atual",
-          sortYear: 2024,
-          title: "Bacharelado em Ciência da Computação",
-          organization: "Senac São Paulo",
-          role: "Graduação",
-          description:
-            "Estudos formais em algoritmos, estruturas de dados, arquitetura de computadores, sistemas distribuídos e engenharia de software.",
-          type: "education",
-        },
-        {
-          year: "2023 – 2024",
-          sortYear: 2023,
-          title: "Desenvolvedor Full Stack Júnior",
-          organization: "Grupo Raotes",
-          role: "Junior Developer",
-          description:
-            "Implementação de interfaces em Vue.js e Quasar, desenvolvimento de regras de negócio em Node.js e manutenção de rotinas em banco de dados relacional.",
-          type: "career",
-        },
-        {
-          year: "2022",
-          sortYear: 2022,
-          title: "Estágio em Desenvolvimento de Software",
-          organization: "ETEC de Embu",
-          role: "Estagiário de Software",
-          description:
-            "Desenvolvimento completo da aplicação web para controle de acervo e empréstimo de livros da biblioteca da escola, utilizando React, Node.js, MySQL e Azure.",
-          type: "career",
-        },
-        {
-          year: "2021 – 2022",
-          sortYear: 2021,
-          title: "Técnico em Desenvolvimento de Sistemas",
-          organization: "ETEC",
-          role: "Curso Técnico",
-          description:
-            "Formação técnica com foco em programação orientada a objetos, banco de dados e desenvolvimento web.",
-          type: "education",
-        },
-        {
-          year: "2020 – 2021",
-          sortYear: 2020,
+          year: 2020,
           title: "Técnico em Automação Industrial",
-          organization: "ETEC de Embu",
-          role: "Curso Técnico",
           description:
-            "Estudos em lógica de controle, circuitos eletrônicos e microcontroladores, ponto de partida para o interesse por programação de baixo nível.",
+            "Primeiros estudos formais em tecnologia e automação industrial.",
+          details:
+            "Pedro iniciou sua trajetória cursando Automação Industrial na ETEC de Embu, desenvolvendo bases sólidas em lógica e sistemas embarcados.",
           type: "education",
         },
+        {
+          year: 2021,
+          title: "Técnico em Desenvolvimento de Sistemas",
+          description:
+            "Início da jornada formal em desenvolvimento de software.",
+          details:
+            "Iniciou o curso técnico na ETEC, focando em programação web e lógica de sistemas.",
+          type: "education",
+        },
+        {
+          year: 2022,
+          title: "Estágio: Sistema de Biblioteca ETEC",
+          description: "Desenvolvimento de software real para gestão escolar.",
+          details:
+            "Durante o estágio na ETEC, desenvolveu um sistema de biblioteca utilizando NodeJS, React, MySQL e Azure, aumentando a eficiência e organização da instituição.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Voluntário no The Developer's Conference (TDC)",
+          description:
+            "Apoio na organização de um dos maiores eventos de TI do Brasil.",
+          details:
+            "Atuou como Assistente de Trilha e Credenciamento, auxiliando na logística das palestras e recepção dos participantes.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Voluntário na Campus Party Brasil",
+          description: "Assistente de Comunidade e Acessibilidade.",
+          details:
+            "Contribuiu para a inclusão e organização das comunidades dentro do evento, garantindo uma boa experiência para os campuseiros.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Desenvolvedor Full Stack Júnior no Grupo Raotes",
+          description: "Início da carreira profissional em tempo integral.",
+          details:
+            "Iniciou no Grupo Raotes atuando com VueJS, Quasar, Sequelize e Postgres, contribuindo na criação de módulos e manutenção de sistemas.",
+          type: "career",
+        },
+        {
+          year: 2024,
+          title: "Desenvolvedor Web Voluntário - Jovens do Futuro",
+          description: "Desenvolvimento front-end para impacto social.",
+          details:
+            "Atuou como Desenvolvedor Web na Associação Jovens do Futuro, criando soluções digitais para apoiar a missão da ONG.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Bacharelado em Ciência da Computação",
+          description: "Início da graduação no Senac São Paulo.",
+          details:
+            "Ingressou no ensino superior para aprofundar os conhecimentos teóricos e científicos da computação.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Voluntário no DevOpsDays São Paulo",
+          description:
+            "Apoio técnico e organizacional no evento de cultura DevOps.",
+          details:
+            "Atuou na equipe de credenciamento, facilitando a entrada e organização dos participantes do evento.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Projetos de Extensão na USP",
+          description:
+            "Especialização em Inteligência Artificial e Machine Learning.",
+          details:
+            "Concluiu extensões universitárias no IME-USP e ICMC-USP focadas em Aprendizado de Máquina e Inteligência Artificial.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Palestra no SENAI",
+          description:
+            "Compartilhando conhecimento sobre automação e desenvolvimento.",
+          details:
+            "Apresentação voltada para estudantes técnicos sobre pipelines de CI/CD e boas práticas de desenvolvimento.",
+          type: "talk",
+        },
+        {
+          year: 2024,
+          title: "Palestra no Senac",
+          description: "Apresentação no evento Tecnologia em Foco.",
+          details:
+            "Ministrou a palestra 'Construindo um Portfólio com GitHub', demonstrando automações reais e Github Actions.",
+          type: "talk",
+        },
+        {
+          year: 2025,
+          title: "Desenvolvedor Full Stack Pleno no Grupo Raotes",
+          description: "Ascensão profissional no Grupo Raotes.",
+          details:
+            "Promovido a Full Stack Software Developer Pleno, assumindo maiores responsabilidades na arquitetura de soluções, servidores on-premise e desenvolvimento mobile.",
+          type: "career",
+        },
+        {
+          year: 2023,
+          title: "Palestra na Etec de Embu",
+          description:
+            "Abertura do evento anual de Desenvolvimento de Sistemas.",
+          details:
+            "Retorno à instituição de origem para palestrar sobre mercado de trabalho e a importância de projetos reais.",
+          type: "talk",
+        },
+        {
+          year: 2026,
+          title: "Professor de Tecnologia da Informação",
+          description: "Professor no Senac São Paulo.",
+          details:
+            "Contratado pelo Senac São Paulo atuando na formação de novos profissionais de Tecnologia da Informação no curso de Assistente de Tecnologias da Informação, conduzindo aulas teóricas e práticas com foco em infraestrutura, redes de computadores, segurança da informação e suporte técnico.",
+          type: "career",
+        },
       ],
-    },
-    about: {
-      eyebrow: "Contexto & Abordagem",
-      title: "Sobre mim",
-      paragraphs: [
-        "Minha relação com a computação começou pelo hardware e pela eletrônica, no curso de Automação Industrial da ETEC. Ao programar controladores lógicos e trabalhar diretamente com sensores e circuitos, ficou claro que construir software era o caminho que eu queria seguir a fundo.",
-        "No dia a dia profissional, atuo como desenvolvedor full stack cuidando de todo o ciclo de uma aplicação: desde a modelagem de bancos de dados relacionais e APIs em Node.js até interfaces web e aplicativos mobile com Vue, Quasar e Capacitor. Trabalho com servidores on-premise, métricas de observabilidade e rotinas de deploy com foco constante em estabilidade e simplicidade arquitetural.",
-        "Fora do trabalho corporativo, leciono como instrutor de TI no Senac, onde ajudo novos profissionais a entenderem redes, sistemas operacionais e suporte técnico. Nas horas vagas, meu hobby é programar em C/C++ para sistemas embarcados e manter projetos de código aberto como o ESP32-HTTP-Client — uma forma prática de exercitar a otimização de memória e me manter próximo do funcionamento fundamental da máquina.",
-      ],
-    },
-    contact: {
-      eyebrow: "Contato",
-      title: "Vamos conversar",
-      subtitle:
-        "Disponível para novas oportunidades de engenharia de software, colaborações técnicas e projetos.",
     },
     footer: {
       nav: {
-        projects: "Projetos",
-        experience: "Experiência",
         about: "Sobre",
+        projects: "Projetos",
+        journey: "Jornada",
       },
       credit: "Desenvolvido por Pedro Fonseca",
     },
@@ -261,90 +308,140 @@ export const translations = {
       title: "404",
       subtitle: "Página Não Encontrada",
       description:
-        "A página que você está procurando não existe ou foi movida.",
-      backHome: "Voltar para a página inicial",
+        "Ops! A página que você está procurando não existe ou foi movida para outro lugar.",
+      backHome: "Voltar para Home",
+    },
+    contact: {
+      eyebrow: "Contato",
+      title: "Vamos conversar",
+      subtitle: "Estou disponível para novas oportunidades, projetos e colaborações.",
+    },
+    services: {
+      title: "Nossos Serviços",
+      items: [
+        {
+          title: "UI/UX Design",
+          description:
+            "Criação de interfaces intuitivas e impactantes que encantam usuários.",
+          icon: "Paintbrush",
+          colorClass: "text-blue-500",
+        },
+        {
+          title: "Desenvolvimento Web",
+          description:
+            "Construção de aplicações robustas, escaláveis e de alta performance.",
+          icon: "Code",
+          colorClass: "text-green-500",
+        },
+        {
+          title: "Marketing Digital",
+          description:
+            "Estratégias que amplificam visibilidade, gerando conexões reais com o público.",
+          icon: "Megaphone",
+          colorClass: "text-yellow-500",
+        },
+        {
+          title: "Desenvolvimento Mobile",
+          description:
+            "Criação de experiências inovadoras para dispositivos iOS e Android.",
+          icon: "Smartphone",
+          colorClass: "text-purple-500",
+        },
+      ],
     },
   },
+
+  /* ------------------------------------------------------- */
+  /* ---------------------- ENGLISH ------------------------- */
+  /* ------------------------------------------------------- */
+
   "en-US": {
     metadata: {
       title: "Pedro Fonseca | Full Stack Developer",
-      description:
-        "Portfolio of Pedro Fonseca — Full Stack Developer specialized in Mobile, Web, Backend, Databases, Cloud and Performance.",
+      description: "Portfolio of Pedro Fonseca - Full Stack Developer",
     },
     general: {
       name: "Pedro Fonseca",
-      role: "Full Stack Developer",
-      viewProjects: "View Projects",
-      contactMe: "Get in Touch",
+      viewProjects: "Let's talk",
+      contactMe: "Contact Me",
+      viewJourney: "View My Journey",
+      contactArrow: "\u2192",
     },
     header: {
       aria: {
-        themeToggle: "Toggle theme",
+        themeToggle: "Toggle light and dark theme",
         languageSelector: "Select language",
       },
       nav: {
         projects: "Projects",
-        experience: "Experience",
+        journey: "Journey",
         about: "About",
         contact: "Contact",
       },
     },
     hero: {
-      badge: "Mobile · Web · Backend · Database · Cloud",
-      headline:
-        "Full Stack Developer — Mobile, Web, Backend, Databases, and Cloud.",
       subtitle:
-        "I build end-to-end applications with a focus on stability and performance: web and mobile interfaces, scalable APIs, relational data modeling, and infrastructure. In my spare time, I maintain open-source projects and build C/C++ embedded software and IoT tools as a hobby.",
-      viewProjects: "View projects",
-      viewGithub: "GitHub",
+        "Full Stack Developer passionate about technology, science, and innovation. Creating elegant and efficient solutions from low level to the cloud.",
+    },
+    wearYourStory: {
+      description:
+        "Full stack developer focused on high performance, capable of building solutions from low-level systems to modern cloud applications. I combine practical experience, technical rigor, and scientific curiosity to transform ideas into real, scalable, and well-structured products. I work deeply with backend, automation, software engineering, and experimental computing, always seeking innovation, clarity, and impact.",
     },
     esp32Showcase: {
-      eyebrow: "Open Source Project · C++ Hobby",
+      eyebrow: "Open Source · ESP32 / C++",
       title: "ESP32 HTTP Client",
       description:
-        "A C++ library for ESP32 designed to simplify HTTP requests with streaming JSON parsing and low memory overhead (low-allocation). It binds payload fields directly to variables or structs without allocating intermediate RAM buffers.",
-      stats: ["Streaming data", "Low-allocation", "REST · JSON · APIs"],
-      benchmarkNote:
-        "Benchmark scenario: 100 sequential GET requests with JSON payload on JSONPlaceholder using the ESP32 Arduino Core.",
-      primaryCta: "View on GitHub",
-      secondaryCta: "Official Documentation",
-      copyLabel: "Copy code",
+        "Fluent, zero-heap HTTP client for ESP32. Bind JSON and API responses straight into your C++ variables—no heavy DOM parsers, no boilerplate.",
+      stats: ["~0.0 KB heap", "~12x faster", "REST · SOAP · GraphQL"],
+      primaryCta: "Get started",
+      secondaryCta: "Read the docs",
+      copyLabel: "Copy",
       copiedLabel: "Copied!",
     },
-    featuredCases: {
-      eyebrow: "Production Work",
-      title: "Real Cases & Applications",
-      subtitle: "Systems built to solve concrete operational and business needs.",
+    featureCarousel: {
+      title: "Skills & Highlights",
       items: [
         {
-          tag: "Corporate Production",
-          title: "Web, Mobile & Infrastructure Systems — Grupo Raotes",
+          title: "Full Stack Expertise",
           description:
-            "Developing software modules for cross-platform enterprise applications (Vue, Quasar, Capacitor). Building Node.js APIs backed by PostgreSQL and maintaining on-premise server telemetry.",
-          context:
-            "Focused on reliable data synchronization, maintainable code, and observability to keep daily operations smooth.",
-          stack: "Vue · Quasar · Capacitor · Node.js · PostgreSQL · Linux On-Premise",
+            "Strong command of backend, frontend, and distributed architectures, delivering complete end-to-end solutions.",
+          icon: "Layers",
         },
         {
-          tag: "School Management",
-          title: "Library Management System — ETEC",
+          title: "Low-Level & High Performance",
           description:
-            "End-to-end web system built during an internship to manage book catalogs and circulation workflows for the school unit.",
-          context:
-            "Replaced manual processes with a single digital system, directly serving school staff and students.",
-          stack: "React · Node.js · MySQL · Azure",
+            "Experience with C, JavaScript, and optimization — building high-performance systems and understanding software internals.",
+          icon: "Settings",
+        },
+        {
+          title: "Constant Innovation",
+          description:
+            "Explores AI, quantum computing, and biotechnology, turning curiosity into real projects and technical experiments.",
+          icon: "Microscope",
+        },
+        {
+          title: "Speaker & Educator",
+          description:
+            "Talks at SENAI, SENAC, ETEC, and GDG, teaching GitHub Actions, deployment, automation, and development best practices.",
+          icon: "Presentation",
+        },
+        {
+          title: "Projects From Scratch",
+          description:
+            "Creates complete solutions from zero: C games, custom APIs, automated pipelines, and experimental systems.",
+          icon: "Rocket",
         },
       ],
     },
     portfolio: {
-      title: "Repositories & Public Projects",
-      subtitleSuffix: "GitHub repositories",
+      title: "My Projects",
+      subtitleSuffix: "public repositories on GitHub",
       stats: {
         stars: "stars",
         forks: "forks",
       },
       loading: "Loading projects...",
-      errorPrefix: "Error loading GitHub projects",
+      errorPrefix: "Error loading projects",
       buttons: {
         previous: "Previous",
         next: "Next",
@@ -358,19 +455,19 @@ export const translations = {
         prefix: "",
         justNow: "just now",
         units: {
-          year: { singular: "year ago", plural: "years ago" },
-          month: { singular: "month ago", plural: "months ago" },
-          week: { singular: "week ago", plural: "weeks ago" },
-          day: { singular: "day ago", plural: "days ago" },
-          hour: { singular: "hour ago", plural: "hours ago" },
-          minute: { singular: "minute ago", plural: "minutes ago" },
+          year: { singular: "year", plural: "years" },
+          month: { singular: "month", plural: "months" },
+          week: { singular: "week", plural: "weeks" },
+          day: { singular: "day", plural: "days" },
+          hour: { singular: "hour", plural: "hours" },
+          minute: { singular: "minute", plural: "minutes" },
         },
       },
       categories: [
         { value: "featured", label: "Featured" },
         { value: "all", label: "All" },
-        { value: "javascript", label: "JavaScript / TS" },
-        { value: "c", label: "C / C++" },
+        { value: "javascript", label: "JavaScript" },
+        { value: "c", label: "C" },
         { value: "csharp", label: "C#" },
         { value: "python", label: "Python" },
         { value: "java", label: "Java" },
@@ -379,213 +476,305 @@ export const translations = {
         JavaScript: "javascript",
         TypeScript: "javascript",
         C: "c",
-        "C++": "c",
         "C#": "csharp",
         Python: "python",
         "Jupyter Notebook": "python",
         Java: "java",
       },
       categoryLabels: {
-        javascript: "JavaScript / TypeScript",
-        c: "C / C++",
+        javascript: "JavaScript",
+        c: "C",
         csharp: "C#",
         python: "Python",
         java: "Java",
         other: "Other",
       },
     },
-    experience: {
-      title: "Professional Experience",
-      subtitle: "My industry work, technical teaching, and education.",
+    timeline: {
+      title: "My Journey",
+      subtitle: "My evolution throughout the years",
       filters: [
-        { value: "all", label: "All" },
-        { value: "career", label: "Career" },
-        { value: "education", label: "Education" },
+        { value: "all", label: "All", icon: null },
+        { value: "education", label: "Education", icon: "GraduationCap" },
+        { value: "career", label: "Career", icon: "Briefcase" },
+        { value: "community", label: "Community", icon: "Users" },
+        { value: "talk", label: "Talks", icon: "Mic" },
       ],
       events: [
         {
-          year: "2026 – Present",
-          sortYear: 2026,
-          title: "IT Instructor",
-          organization: "Senac São Paulo",
-          role: "Technical Instructor",
+          year: 2020,
+          title: "Industrial Automation Technician",
           description:
-            "Teaching IT fundamentals including computer networks, operating systems, technical support, and basic cybersecurity.",
-          type: "career",
-        },
-        {
-          year: "2025 – Present",
-          sortYear: 2025,
-          title: "Mid-level Full Stack Developer",
-          organization: "Grupo Raotes / WebGR",
-          role: "Full Stack Developer",
-          description:
-            "Building and supporting web and mobile applications with Vue and Quasar, Node.js backend services on PostgreSQL, and on-premise system monitoring.",
-          type: "career",
-        },
-        {
-          year: "2024 – Present",
-          sortYear: 2024,
-          title: "B.S. in Computer Science",
-          organization: "Senac São Paulo",
-          role: "Undergraduate Degree",
-          description:
-            "Formal study in computational theory, algorithm design, data structures, computer architecture, and software engineering.",
+            "First formal studies in technology and industrial automation.",
+          details:
+            "Pedro began his journey by studying Industrial Automation at ETEC Embu, developing solid foundations in logic and embedded systems.",
           type: "education",
         },
         {
-          year: "2023 – 2024",
-          sortYear: 2023,
-          title: "Junior Full Stack Developer",
-          organization: "Grupo Raotes",
-          role: "Junior Developer",
+          year: 2021,
+          title: "Systems Development Technician",
           description:
-            "Built user interfaces with Vue.js and Quasar, implemented business logic in Node.js, and maintained relational database queries.",
-          type: "career",
-        },
-        {
-          year: "2022",
-          sortYear: 2022,
-          title: "Software Development Intern",
-          organization: "ETEC de Embu",
-          role: "Software Intern",
-          description:
-            "Developed an end-to-end web system for library cataloging and book loan workflows using React, Node.js, MySQL, and Azure.",
-          type: "career",
-        },
-        {
-          year: "2021 – 2022",
-          sortYear: 2021,
-          title: "Vocational Technical Degree in Systems Development",
-          organization: "ETEC",
-          role: "Technical Degree",
-          description:
-            "Technical curriculum covering structured programming, OOP, relational databases, and web applications.",
+            "Beginning of the formal journey in software development.",
+          details:
+            "Started the technical course at ETEC, focusing on web programming and systems logic.",
           type: "education",
         },
         {
-          year: "2020 – 2021",
-          sortYear: 2020,
-          title: "Vocational Technical Degree in Industrial Automation",
-          organization: "ETEC de Embu",
-          role: "Technical Degree",
+          year: 2022,
+          title: "Internship: ETEC Library System",
+          description: "Real-world software development for school management.",
+          details:
+            "During the internship at ETEC, developed a library system using NodeJS, React, MySQL, and Azure, increasing the institution's efficiency and organization.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Volunteer at The Developer's Conference (TDC)",
           description:
-            "Introductory studies in control logic, electronic circuits, and embedded systems, laying the groundwork for low-level development.",
+            "Support in organizing one of the largest IT events in Brazil.",
+          details:
+            "Acted as a Track and Registration Assistant, helping with lecture logistics and attendee reception.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Volunteer at Campus Party Brazil",
+          description: "Community and Accessibility Assistant.",
+          details:
+            "Contributed to inclusion and community organization within the event, ensuring a good experience for attendees (campuseiros).",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Junior Full Stack Developer at Grupo Raotes",
+          description: "Start of full-time professional career.",
+          details:
+            "Started at Grupo Raotes working with VueJS, Quasar, Sequelize, and Postgres, contributing to module creation and system maintenance.",
+          type: "career",
+        },
+        {
+          year: 2024,
+          title: "Volunteer Web Developer - Jovens do Futuro",
+          description: "Front-end development for social impact.",
+          details:
+            "Acted as a Web Developer at the Jovens do Futuro Association, creating digital solutions to support the NGO's mission.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Bachelor's in Computer Science",
+          description: "Start of undergraduate studies at Senac São Paulo.",
+          details:
+            "Entered higher education to deepen theoretical and scientific knowledge of computing.",
           type: "education",
+        },
+        {
+          year: 2024,
+          title: "Volunteer at DevOpsDays São Paulo",
+          description:
+            "Technical and organizational support at the DevOps culture event.",
+          details:
+            "Worked on the registration team, facilitating entry and organization for event participants.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Extension Projects at USP",
+          description:
+            "Specialization in Artificial Intelligence and Machine Learning.",
+          details:
+            "Completed university extension courses at IME-USP and ICMC-USP focused on Machine Learning and Artificial Intelligence.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Talk at SENAI",
+          description: "Sharing knowledge about automation and development.",
+          details:
+            "Presentation aimed at technical students regarding CI/CD pipelines and development best practices.",
+          type: "talk",
+        },
+        {
+          year: 2024,
+          title: "Talk at Senac",
+          description: "Presentation at the 'Technology in Focus' event.",
+          details:
+            "Delivered the talk 'Building a Portfolio with GitHub', demonstrating real automations and GitHub Actions.",
+          type: "talk",
+        },
+        {
+          year: 2025,
+          title: "Mid-Level Full Stack Developer at Grupo Raotes",
+          description: "Professional rise at Grupo Raotes.",
+          details:
+            "Promoted to Mid-Level Full Stack Software Developer, taking on greater responsibilities in solution architecture, on-premise servers, and mobile development.",
+          type: "career",
+        },
+        {
+          year: 2023,
+          title: "Talk at Etec Embu",
+          description: "Opening of the annual Systems Development event.",
+          details:
+            "Returned to his alma mater to speak about the job market and the importance of real-world projects.",
+          type: "talk",
+        },
+        {
+          year: 2026,
+          title: "Information Technology Teacher",
+          description: "Teacher at Senac São Paulo.",
+          details:
+            "Hired by Senac São Paulo to train new Information Technology professionals in the Information Technologies Assistant course, conducting theoretical and practical classes focusing on infrastructure, computer networks, information security, and technical support.",
+          type: "career",
         },
       ],
-    },
-    about: {
-      eyebrow: "Context & Approach",
-      title: "About Me",
-      paragraphs: [
-        "My journey in computing started with hardware and electronics while studying Industrial Automation at technical school. Programming control logic and working hands-on with microcontrollers and circuits made it clear that building software was where I wanted to go deeper.",
-        "In my daily professional work, I operate as a full-stack developer owning the complete software lifecycle: from relational database schemas and Node.js APIs to web and mobile apps with Vue, Quasar, and Capacitor. I manage on-premise servers and telemetry routines, always prioritizing stability and architectural simplicity.",
-        "Beyond commercial projects, I teach as an IT instructor at Senac, helping aspiring technicians understand networks, operating systems, and technical support. In my spare time, my hobby is writing C/C++ embedded software and maintaining open-source libraries like ESP32-HTTP-Client — a practical way to exercise memory optimization and stay close to the bare metal.",
-      ],
-    },
-    contact: {
-      eyebrow: "Contact",
-      title: "Let's connect",
-      subtitle:
-        "Available for software engineering opportunities, technical discussions, and collaborations.",
     },
     footer: {
       nav: {
-        projects: "Projects",
-        experience: "Experience",
         about: "About",
+        projects: "Projects",
+        journey: "Journey",
+        contact: "Contact",
       },
-      credit: "Built by Pedro Fonseca",
+      credit: "Developed by Pedro Fonseca",
     },
     notFound: {
       title: "404",
       subtitle: "Page Not Found",
       description:
-        "The page you are looking for does not exist or has been moved.",
-      backHome: "Back to home",
+        "Oops! The page you're looking for doesn't exist or has been moved somewhere else.",
+      backHome: "Back to Home",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's talk",
+      subtitle: "I'm available for new opportunities, projects and collaborations.",
+    },
+    services: {
+      title: "Our Services",
+      items: [
+        {
+          title: "UI/UX Design",
+          description:
+            "Creation of intuitive and impactful interfaces that delight users.",
+          icon: "Paintbrush",
+          colorClass: "text-blue-500",
+        },
+        {
+          title: "Web Development",
+          description:
+            "Building robust, scalable, high-performance applications.",
+          icon: "Code",
+          colorClass: "text-green-500",
+        },
+        {
+          title: "Digital Marketing",
+          description:
+            "Strategies that expand visibility and create real audience connection.",
+          icon: "Megaphone",
+          colorClass: "text-yellow-500",
+        },
+        {
+          title: "Mobile Development",
+          description:
+            "Creating innovative experiences for iOS and Android devices.",
+          icon: "Smartphone",
+          colorClass: "text-purple-500",
+        },
+      ],
     },
   },
+
+  /* ------------------------------------------------------- */
+  /* ---------------------- SPANISH ------------------------- */
+  /* ------------------------------------------------------- */
+
   "es-ES": {
     metadata: {
       title: "Pedro Fonseca | Desarrollador Full Stack",
-      description:
-        "Portafolio de Pedro Fonseca — Desarrollador Full Stack especializado en Mobile, Web, Backend, Bases de Datos, Cloud y Rendimiento.",
+      description: "Portafolio de Pedro Fonseca - Desarrollador Full Stack",
     },
     general: {
       name: "Pedro Fonseca",
-      role: "Desarrollador Full Stack",
-      viewProjects: "Ver Proyectos",
-      contactMe: "Contactar",
+      viewProjects: "Hablemos",
+      contactMe: "Contáctame",
+      viewJourney: "Ver Mi Trayectoria",
+      contactArrow: "\u2192",
     },
     header: {
       aria: {
-        themeToggle: "Cambiar tema",
+        themeToggle: "Cambiar entre tema claro y oscuro",
         languageSelector: "Seleccionar idioma",
       },
       nav: {
         projects: "Proyectos",
-        experience: "Experiencia",
-        about: "Sobre mí",
+        journey: "Trayectoria",
+        about: "Acerca de",
         contact: "Contacto",
       },
     },
     hero: {
-      badge: "Mobile · Web · Backend · Base de datos · Cloud",
-      headline:
-        "Desarrollador Full Stack — Mobile, Web, Backend, Bases de Datos y Cloud.",
       subtitle:
-        "Desarrollo aplicaciones integrales con foco en estabilidad y rendimiento: interfaces web y móviles, APIs escaláveis, modelado de bases de datos e infraestructura. En mi tiempo libre, mantengo proyectos de código abierto y desarrollo software en C/C++ para sistemas embebidos e IoT como hobby.",
-      viewProjects: "Ver proyectos",
-      viewGithub: "GitHub",
+        "Desarrollador Full Stack apasionado por la tecnología, la ciencia y la innovación. Creando soluciones elegantes y eficientes desde el bajo nivel hasta la nube.",
+    },
+    wearYourStory: {
+      description:
+        "Desarrollador full stack enfocado en alto rendimiento, capaz de crear soluciones que van desde sistemas de bajo nivel hasta aplicaciones modernas en la nube. Combino experiencia práctica, rigor técnico y curiosidad científica para transformar ideas en productos reales, escalables y bien estructurados. Trabajo con profundidad en backend, automatización, ingeniería de software y computación experimental, siempre buscando innovación, claridad e impacto.",
     },
     esp32Showcase: {
-      eyebrow: "Proyecto Open Source · Hobby en C++",
+      eyebrow: "Open Source · ESP32 / C++",
       title: "ESP32 HTTP Client",
       description:
-        "Librería C++ para ESP32 diseñada para facilitar peticiones HTTP con procesamiento en streaming y bajo uso de memoria (low-allocation). Permite vincular campos directamente a variables sin almacenar buffers pesados en RAM.",
-      stats: ["Streaming de datos", "Low-allocation", "REST · JSON · APIs"],
-      benchmarkNote:
-        "Escenario de prueba: 100 peticiones GET secuenciales con payload JSON en JSONPlaceholder mediante Arduino Core para ESP32.",
-      primaryCta: "Ver en GitHub",
-      secondaryCta: "Documentación oficial",
-      copyLabel: "Copiar código",
+        "Cliente HTTP fluido y zero-heap para ESP32. Vincula respuestas JSON y de APIs directamente en tus variables C++, sin parsers pesados ni boilerplate.",
+      stats: ["~0.0 KB heap", "~12x más rápido", "REST · SOAP · GraphQL"],
+      primaryCta: "Empezar ahora",
+      secondaryCta: "Ver documentación",
+      copyLabel: "Copiar",
       copiedLabel: "¡Copiado!",
     },
-    featuredCases: {
-      eyebrow: "Trabajo en Producción",
-      title: "Casos y Aplicaciones Reales",
-      subtitle: "Sistemas desarrollados para resolver necesidades operativas reales.",
+    featureCarousel: {
+      title: "Habilidades & Diferenciales",
       items: [
         {
-          tag: "Producción Corporativa",
-          title: "Sistemas Web, Mobile e Infraestructura — Grupo Raotes",
+          title: "Experiencia Full Stack",
           description:
-            "Desarrollo de módulos para aplicaciones corporativas multiplataforma (Vue, Quasar, Capacitor). Creación de APIs en Node.js con PostgreSQL y soporte a infraestructura on-premise.",
-          context:
-            "Enfoque en sincronización fiable de datos, código mantenible y observabilidad para garantizar la continuidad operativa.",
-          stack: "Vue · Quasar · Capacitor · Node.js · PostgreSQL · Linux On-Premise",
+            "Dominio sólido en backend, frontend y arquitecturas distribuidas, entregando soluciones completas de extremo a extremo.",
+          icon: "Layers",
         },
         {
-          tag: "Gestión Escolar",
-          title: "Sistema de Biblioteca — ETEC",
+          title: "Bajo Nivel y Alto Rendimiento",
           description:
-            "Aplicación integral desarrollada durante prácticas para la gestión de préstamos y catálogo escolar con React, Node.js, MySQL y Azure.",
-          context:
-            "Sustituyó controles manuales por un sistema digital centralizado para personal y estudiantes.",
-          stack: "React · Node.js · MySQL · Azure",
+            "Experiencia con C, JavaScript y optimización, creando sistemas de alto rendimiento y comprendiendo profundamente el funcionamiento interno del software.",
+          icon: "Settings",
+        },
+        {
+          title: "Innovación Continua",
+          description:
+            "Explora IA, computación cuántica y biotecnología, convirtiendo curiosidad en proyectos reales y experimentos técnicos.",
+          icon: "Microscope",
+        },
+        {
+          title: "Conferencista y Educador",
+          description:
+            "Charlas en SENAI, SENAC, ETEC y GDG, enseñando GitHub Actions, deploy, automatización y buenas prácticas de desarrollo.",
+          icon: "Presentation",
+        },
+        {
+          title: "Proyectos Desde Cero",
+          description:
+            "Creación de soluciones completas desde cero: juegos en C, APIs personalizadas, pipelines automatizados y sistemas experimentales.",
+          icon: "Rocket",
         },
       ],
     },
     portfolio: {
-      title: "Repositorios y Proyectos Públicos",
-      subtitleSuffix: "proyectos en GitHub",
+      title: "Mis Proyectos",
+      subtitleSuffix: "repositorios públicos en GitHub",
       stats: {
         stars: "stars",
         forks: "forks",
       },
       loading: "Cargando proyectos...",
-      errorPrefix: "Error al cargar proyectos de GitHub",
+      errorPrefix: "Error al cargar los proyectos",
       buttons: {
         previous: "Anterior",
         next: "Siguiente",
@@ -597,7 +786,7 @@ export const translations = {
       },
       timeAgo: {
         prefix: "hace",
-        justNow: "ahora mismo",
+        justNow: "justo ahora",
         units: {
           year: { singular: "año", plural: "años" },
           month: { singular: "mes", plural: "meses" },
@@ -610,8 +799,8 @@ export const translations = {
       categories: [
         { value: "featured", label: "Destacados" },
         { value: "all", label: "Todos" },
-        { value: "javascript", label: "JavaScript / TS" },
-        { value: "c", label: "C / C++" },
+        { value: "javascript", label: "JavaScript" },
+        { value: "c", label: "C" },
         { value: "csharp", label: "C#" },
         { value: "python", label: "Python" },
         { value: "java", label: "Java" },
@@ -620,130 +809,211 @@ export const translations = {
         JavaScript: "javascript",
         TypeScript: "javascript",
         C: "c",
-        "C++": "c",
         "C#": "csharp",
         Python: "python",
         "Jupyter Notebook": "python",
         Java: "java",
       },
       categoryLabels: {
-        javascript: "JavaScript / TypeScript",
-        c: "C / C++",
+        javascript: "JavaScript",
+        c: "C",
         csharp: "C#",
         python: "Python",
         java: "Java",
         other: "Otros",
       },
     },
-    experience: {
-      title: "Experiencia Profesional",
-      subtitle: "Mi trayectoria profesional, docencia técnica y formación.",
+    timeline: {
+      title: "Mi Trayectoria",
+      subtitle: "Mi evolución a lo largo de los años",
       filters: [
-        { value: "all", label: "Todos" },
-        { value: "career", label: "Carrera" },
-        { value: "education", label: "Educación" },
+        { value: "all", label: "Todos", icon: null },
+        { value: "education", label: "Educación", icon: "GraduationCap" },
+        { value: "career", label: "Carrera", icon: "Briefcase" },
+        { value: "community", label: "Comunidad", icon: "Users" },
+        { value: "talk", label: "Charlas", icon: "Mic" },
       ],
       events: [
         {
-          year: "2026 – Actual",
-          sortYear: 2026,
-          title: "Docencia en Tecnologías de la Información",
-          organization: "Senac São Paulo",
-          role: "Instructor Técnico de TI",
-          description:
-            "Formación de profesionales en TI con clases teóricas y prácticas sobre redes, sistemas operativos, soporte técnico y seguridad básica.",
-          type: "career",
-        },
-        {
-          year: "2025 – Actual",
-          sortYear: 2025,
-          title: "Desarrollador Full Stack Pleno",
-          organization: "Grupo Raotes / WebGR",
-          role: "Full Stack Developer",
-          description:
-            "Desarrollo y mantenimiento de aplicaciones corporativas: web y mobile con Vue/Quasar, servicios Node.js con PostgreSQL y observabilidad on-premise.",
-          type: "career",
-        },
-        {
-          year: "2024 – Actual",
-          sortYear: 2024,
-          title: "Grado en Ciencias de la Computación",
-          organization: "Senac São Paulo",
-          role: "Estudios Universitarios",
-          description:
-            "Estudios en algoritmos, estructuras de datos, arquitectura de sistemas e ingeniería de software.",
-          type: "education",
-        },
-        {
-          year: "2023 – 2024",
-          sortYear: 2023,
-          title: "Desarrollador Full Stack Júnior",
-          organization: "Grupo Raotes",
-          role: "Junior Developer",
-          description:
-            "Desarrollo de interfaces con Vue.js y Quasar, lógica de negocio en Node.js y consultas a bases de datos relacionales.",
-          type: "career",
-        },
-        {
-          year: "2022",
-          sortYear: 2022,
-          title: "Prácticas en Desarrollo de Software",
-          organization: "ETEC de Embu",
-          role: "Practicante de Software",
-          description:
-            "Desarrollo de un sistema web integral para gestión de préstamos de la biblioteca escolar con React, Node.js, MySQL y Azure.",
-          type: "career",
-        },
-        {
-          year: "2021 – 2022",
-          sortYear: 2021,
-          title: "Técnico en Desarrollo de Sistemas",
-          organization: "ETEC",
-          role: "Curso Técnico",
-          description:
-            "Formación técnica con foco en programación estructurada, POO, bases de datos y aplicaciones web.",
-          type: "education",
-        },
-        {
-          year: "2020 – 2021",
-          sortYear: 2020,
+          year: 2020,
           title: "Técnico en Automatización Industrial",
-          organization: "ETEC de Embu",
-          role: "Curso Técnico",
           description:
-            "Fundamentos en lógica de control, circuitos y sistemas embebidos, base del interés en microcontroladores e IoT.",
+            "Primeros estudios formales en tecnología y automatización industrial.",
+          details:
+            "Pedro inició su trayectoria cursando Automatización Industrial en la ETEC de Embu, desarrollando bases sólidas en lógica y sistemas integrados.",
           type: "education",
         },
+        {
+          year: 2021,
+          title: "Técnico en Desarrollo de Sistemas",
+          description: "Inicio de la jornada formal en desarrollo de software.",
+          details:
+            "Comenzó el curso técnico en la ETEC, enfocándose en programación web y lógica de sistemas.",
+          type: "education",
+        },
+        {
+          year: 2022,
+          title: "Pasantía: Sistema de Biblioteca ETEC",
+          description: "Desarrollo de software real para gestión escolar.",
+          details:
+            "Durante la pasantía en la ETEC, desarrolló un sistema de biblioteca utilizando NodeJS, React, MySQL y Azure, aumentando la eficiencia y organización de la institución.",
+          type: "career",
+        },
+        {
+          year: 2022,
+          title: "Voluntario en The Developer's Conference (TDC)",
+          description:
+            "Apoyo en la organización de uno de los mayores eventos de TI de Brasil.",
+          details:
+            "Actuó como Asistente de Pista (Track) y Acreditación, ayudando en la logística de las charlas y recepción de los participantes.",
+          type: "community",
+        },
+        {
+          year: 2022,
+          title: "Voluntario en Campus Party Brasil",
+          description: "Asistente de Comunidad y Accesibilidad.",
+          details:
+            "Contribuyó a la inclusión y organización de las comunidades dentro del evento, garantizando una buena experiencia para los campuseros.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Desarrollador Full Stack Junior en Grupo Raotes",
+          description: "Inicio de la carrera profesional a tiempo completo.",
+          details:
+            "Comenzó en Grupo Raotes trabajando con VueJS, Quasar, Sequelize y Postgres, contribuyendo en la creación de módulos y mantenimiento de sistemas.",
+          type: "career",
+        },
+        {
+          year: 2023,
+          title: "Desarrollador Web Voluntario - Jovens do Futuro",
+          description: "Desarrollo front-end para impacto social.",
+          details:
+            "Actuó como Desarrollador Web en la Asociación Jovens do Futuro, creando soluciones digitales para apoyar la misión de la ONG.",
+          type: "community",
+        },
+        {
+          year: 2023,
+          title: "Licenciatura en Ciencias de la Computación",
+          description: "Inicio del grado universitario en Senac São Paulo.",
+          details:
+            "Ingresó a la educación superior para profundizar los conocimientos teóricos y científicos de la computación.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Voluntario en DevOpsDays São Paulo",
+          description:
+            "Apoyo técnico y organizacional en el evento de cultura DevOps.",
+          details:
+            "Actuó en el equipo de acreditación, facilitando la entrada y organización de los participantes del evento.",
+          type: "community",
+        },
+        {
+          year: 2024,
+          title: "Proyectos de Extensión en la USP",
+          description:
+            "Especialización en Inteligencia Artificial y Machine Learning.",
+          details:
+            "Concluyó extensiones universitarias en el IME-USP e ICMC-USP enfocadas en Aprendizaje Automático e Inteligencia Artificial.",
+          type: "education",
+        },
+        {
+          year: 2024,
+          title: "Charla en SENAI",
+          description:
+            "Compartiendo conocimiento sobre automatización y desarrollo.",
+          details:
+            "Presentación dirigida a estudiantes técnicos sobre pipelines de CI/CD y buenas prácticas de desarrollo.",
+          type: "talk",
+        },
+        {
+          year: 2024,
+          title: "Charla en Senac",
+          description: "Presentación en el evento Tecnología en Foco.",
+          details:
+            "Impartió la charla 'Construyendo un Portafolio con GitHub', demostrando automatizaciones reales y GitHub Actions.",
+          type: "talk",
+        },
+        {
+          year: 2025,
+          title: "Desarrollador Full Stack Pleno en Grupo Raotes",
+          description: "Ascenso profesional en Grupo Raotes.",
+          details:
+            "Promovido a Desarrollador de Software Full Stack Pleno (Semi-Senior), asumiendo mayores responsabilidades en la arquitectura de soluciones, servidores on-premise y desarrollo móvil.",
+          type: "career",
+        },
+        {
+          year: 2023,
+          title: "Charla en Etec de Embu",
+          description: "Apertura del evento anual de Desarrollo de Sistemas.",
+          details:
+            "Regreso a la institución de origen para dar una charla sobre el mercado laboral y la importancia de proyectos reales.",
+          type: "talk",
+        },
+        {
+          year: 2026,
+          title: "Profesor de Tecnología de la Información",
+          description: "Docente en Senac São Paulo.",
+          details:
+            "Contratado por Senac São Paulo actuando en la formación de nuevos profesionales de Tecnología de la Información en el curso de Asistente de Tecnologías de la Información, impartiendo clases teóricas y prácticas con enfoque en infraestructura, redes de computadoras, seguridad de la información y soporte técnico.",
+          type: "career",
+        },
       ],
-    },
-    about: {
-      eyebrow: "Contexto y Enfoque",
-      title: "Sobre mí",
-      paragraphs: [
-        "Mi relación con la informática comenzó con el hardware y la electrónica, cursando Automatización Industrial en la ETEC. Programar controladores y trabajar directamente con circuitos me hizo comprender que el desarrollo de software era mi vocación.",
-        "En mi día a día profesional, me desempeño como desarrollador full stack abarcando todo el ciclo: desde modelado de bases de datos relacionales y APIs en Node.js hasta clientes web y aplicaciones móviles con Vue, Quasar y Capacitor. Administro servidores on-premise y métricas de observabilidad priorizando siempre la estabilidad y la claridad arquitectónica.",
-        "Más allá de la industria, soy instructor de TI en Senac, donde enseño redes, infraestructura y soporte técnico. En mi tiempo libre, mi hobby es programar en C/C++ para sistemas embebidos y mantener librerías de código abierto como ESP32-HTTP-Client — una forma práctica de ejercitar la optimização de memoria y mantenerme cerca del funcionamiento del hardware.",
-      ],
-    },
-    contact: {
-      eyebrow: "Contacto",
-      title: "Hablemos",
-      subtitle:
-        "Disponible para oportunidades de ingeniería de software, proyectos y colaboraciones técnicas.",
     },
     footer: {
       nav: {
-        projects: "Proyectos",
-        experience: "Experiencia",
         about: "Sobre mí",
+        projects: "Proyectos",
+        journey: "Trayectoria",
+        contact: "Contacto",
       },
       credit: "Desarrollado por Pedro Fonseca",
     },
     notFound: {
       title: "404",
       subtitle: "Página No Encontrada",
-      description: "La página que buscas no existe o ha sido movida.",
-      backHome: "Volver al inicio",
+      description:
+        "¡Ups! La página que buscas no existe o ha sido movida a otro lugar.",
+      backHome: "Volver al Inicio",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Hablemos",
+      subtitle: "Estoy disponible para nuevas oportunidades, proyectos y colaboraciones.",
+    },
+    services: {
+      title: "Nuestros Servicios",
+      items: [
+        {
+          title: "Diseño UI/UX",
+          description:
+            "Creación de interfaces intuitivas e impactantes que encantan a los usuarios.",
+          icon: "Paintbrush",
+          colorClass: "text-blue-500",
+        },
+        {
+          title: "Desarrollo Web",
+          description:
+            "Construcción de aplicaciones robustas, escalables y de alto rendimiento.",
+          icon: "Code",
+          colorClass: "text-green-500",
+        },
+        {
+          title: "Marketing Digital",
+          description:
+            "Estrategias que amplifican visibilidad y generan conexión real con el público.",
+          icon: "Megaphone",
+          colorClass: "text-yellow-500",
+        },
+        {
+          title: "Desarrollo Móvil",
+          description:
+            "Creación de experiencias innovadoras para dispositivos iOS y Android.",
+          icon: "Smartphone",
+          colorClass: "text-purple-500",
+        },
+      ],
     },
   },
 };

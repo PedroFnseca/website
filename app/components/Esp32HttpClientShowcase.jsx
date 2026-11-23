@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Github } from "lucide-react";
 import { useLanguage } from "../providers/LanguageProvider";
 
 const CODE_SNIPPET = `int userId = 0;
 char title[64];
-bool completed = false;
+bool completed;
 
-// Leitura em streaming: vincula campos diretamente a variáveis
 client.get("/todos/1")
       .getBody("userId", &userId)
       .getBody("title", title, sizeof(title))
@@ -32,113 +31,92 @@ export default function Esp32HttpClientShowcase() {
   return (
     <section
       id="esp32-http-client"
-      className="scroll-mt-16 py-16 sm:py-20 border-b border-border bg-background"
+      className="py-20 bg-background"
       aria-labelledby="esp32-showcase-title"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Coluna da esquerda: Descrição técnica & contexto */}
-          <div className="lg:col-span-6 space-y-4">
-            <span className="section-eyebrow block">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               {content.eyebrow}
-            </span>
+            </p>
 
             <h2
               id="esp32-showcase-title"
-              className="section-title"
+              className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground"
             >
-              {content.title}
+              <span className="text-gradient">{content.title}</span>
             </h2>
 
-            <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
               {content.description}
             </p>
 
-            {/* Badges de recursos */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-muted-foreground">
               {content.stats.map((stat) => (
-                <span
-                  key={stat}
-                  className="rounded border border-border bg-secondary/50 px-2.5 py-1 text-xs font-mono text-foreground"
-                >
+                <span key={stat} className="font-medium text-foreground/90">
                   {stat}
                 </span>
               ))}
             </div>
 
-            {/* Nota de benchmark contextualizada */}
-            {content.benchmarkNote && (
-              <p className="text-xs text-muted-foreground/80 border-l-2 border-border pl-3 pt-0.5">
-                {content.benchmarkNote}
-              </p>
-            )}
-
-            {/* Ações */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a
-                href="https://github.com/PedroFnseca/ESP32-HTTP-Client"
+                href="https://esp32httpclient.com/getting-started/quickstart"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="apple-button inline-flex items-center justify-center gap-2"
               >
-                <Github className="h-4 w-4" aria-hidden="true" />
                 <span>{content.primaryCta}</span>
-                <ArrowUpRight className="h-4 w-4 opacity-70" aria-hidden="true" />
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
 
               <a
                 href="https://esp32httpclient.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
-                <ExternalLink className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                 <span>{content.secondaryCta}</span>
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+
+              <a
+                href="https://github.com/PedroFnseca/esp32-http-client"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="GitHub - ESP32 HTTP Client"
+              >
+                <Github className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          {/* Coluna da direita: Exemplo de código C++ limpo */}
           <div className="lg:col-span-6">
-            <div className="rounded-lg border border-border bg-card overflow-hidden shadow-sm">
-              <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-4 py-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-border" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-border" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-border" />
-                  <span className="ml-2 font-mono text-xs text-muted-foreground">
-                    example.cpp
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="inline-flex items-center gap-1.5 rounded px-2 py-1 font-mono text-xs text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="h-3.5 w-3.5 text-tech" />
-                      <span>{content.copiedLabel}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="h-3.5 w-3.5" />
-                      <span>{content.copyLabel}</span>
-                    </>
-                  )}
-                </button>
-              </div>
+            <div className="relative glass-card rounded-3xl p-6 sm:p-8 hover-lift">
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="absolute top-4 right-4 glass-button inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+                aria-label={content.copyLabel}
+              >
+                {copied ? (
+                  <>
+                    <Check className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                    <span>{content.copiedLabel}</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>{content.copyLabel}</span>
+                  </>
+                )}
+              </button>
 
-              <div className="p-4 overflow-x-auto bg-card">
-                <pre className="font-mono text-xs sm:text-sm leading-relaxed text-foreground">
-                  <code>{CODE_SNIPPET}</code>
-                </pre>
-              </div>
-
-              <div className="border-t border-border bg-secondary/20 px-4 py-2 text-[11px] font-mono text-muted-foreground flex items-center justify-between">
-                <span>C++11 / C++17</span>
-                <span>ESP32 Arduino Core</span>
-              </div>
+              <pre className="pt-4 text-xs sm:text-sm leading-relaxed overflow-x-auto text-foreground font-mono">
+                <code>{CODE_SNIPPET}</code>
+              </pre>
             </div>
           </div>
         </div>

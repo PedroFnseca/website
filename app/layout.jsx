@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import ReactQueryProvider from "./providers/ReactQueryProvider";
@@ -8,20 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { translations } from "./constants/translations";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 const DEFAULT_LANGUAGE = "pt-BR";
 
@@ -36,7 +23,7 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body
-        className={`${inter.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-tech/20`}
+        className={`${inter.className} min-h-screen bg-background text-foreground`}
         suppressHydrationWarning
       >
         <Script
